@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSH Key Setup Guide — Ghazi & Bayan Khutouba</title>
+    <style>
+        :root {
+            --bg: #fdf6f0;
+            --card-bg: #fffaf8;
+            --text: #3d2c2e;
+            --text-light: #6d5a5c;
+            --rose: #d4a0a7;
+            --rose-dark: #b07b84;
+            --gold: #c4a35a;
+            --code-bg: #f9f3f0;
+            --border: rgba(212,160,167,0.2);
+            --shadow: 0 4px 30px rgba(61,44,46,0.06);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            padding: 2rem 1.5rem 4rem;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 3rem 2rem;
+            background: var(--card-bg);
+            border-radius: 2rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .header .subtitle {
+            color: var(--rose-dark);
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .header .date {
+            color: var(--gold);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            font-style: italic;
+        }
+
+        /* Content Cards */
+        .card {
+            background: var(--card-bg);
+            border-radius: 1.5rem;
+            padding: 2.5rem 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+        }
+
+        .card h2 {
+            font-size: 1.4rem;
+            color: var(--rose-dark);
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid rgba(212,160,167,0.2);
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+            color: var(--text);
+            margin: 1.5rem 0 0.8rem;
+        }
+
+        .card h3:first-of-type { margin-top: 0; }
+
+        .card p {
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .card ul, .card ol {
+            margin: 0.8rem 0 1.2rem 1.5rem;
+            color: var(--text-light);
+        }
+
+        .card li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Code blocks */
+        code {
+            background: var(--code-bg);
+            padding: 0.2rem 0.5rem;
+            border-radius: 0.4rem;
+            font-family: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+            font-size: 0.9rem;
+            color: #b05a6b;
+            border: 1px solid rgba(212,160,167,0.2);
+            word-break: break-all;
+        }
+
+        .code-block {
+            background: #2d1f21;
+            color: #f0d9dd;
+            padding: 1.2rem 1.5rem;
+            border-radius: 0.8rem;
+            margin: 1rem 0;
+            overflow-x: auto;
+            font-family: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            position: relative;
+        }
+
+        .code-block .prompt { color: var(--rose); }
+        .code-block .cmd { color: #e0b7bd; }
+        .code-block .file { color: var(--gold); }
+
+        /* Alert boxes */
+        .alert {
+            padding: 1rem 1.2rem;
+            border-radius: 0.8rem;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .alert-warning {
+            background: #fff8e6;
+            border-left: 4px solid #e6a817;
+            color: #6d4c00;
+        }
+
+        .alert-info {
+            background: #f0f4ff;
+            border-left: 4px solid #5b8def;
+            color: #1e3a6e;
+        }
+
+        .alert-security {
+            background: #ffe8e8;
+            border-left: 4px solid #e04848;
+            color: #5c1a1a;
+        }
+
+        .alert-success {
+            background: #e8ffe8;
+            border-left: 4px solid #3d9e3d;
+            color: #1a3d1a;
+        }
+
+        /* Step numbers */
+        .step-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: var(--rose);
+            color: white;
+            border-radius: 50%;
+            font-weight: 700;
+            font-size: 0.85rem;
+            margin-right: 0.5rem;
+        }
+
+        /* Key display */
+        .key-display {
+            background: #f9f3f0;
+            border: 2px dashed var(--rose);
+            border-radius: 0.8rem;
+            padding: 1rem 1.2rem;
+            font-family: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+            font-size: 0.75rem;
+            word-break: break-all;
+            color: var(--text);
+            line-height: 1.6;
+            margin: 1rem 0;
+            user-select: all;
+        }
+
+        .key-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15rem;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        /* Table of contents */
+        .toc {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .toc a {
+            background: var(--code-bg);
+            color: var(--rose-dark);
+            padding: 0.4rem 0.9rem;
+            border-radius: 2rem;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+
+        .toc a:hover {
+            background: var(--rose);
+            color: white;
+            border-color: var(--rose);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            color: var(--text-light);
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            body { padding: 1rem 0.75rem 3rem; }
+            .card { padding: 1.5rem 1.2rem; }
+            .header { padding: 2rem 1.2rem; }
+            .header h1 { font-size: 1.6rem; }
+            .code-block { padding: 1rem; font-size: 0.75rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <!-- HEADER -->
+        <div class="header">
+            <h1>🔐 SSH Key Setup Guide</h1>
+            <p class="subtitle">Ghazi &amp; Bayan — Khutouba Invitation Repository</p>
+            <p class="date">Created: July 2026</p>
+        </div>
+
+        <!-- WHAT IS THIS? -->
+        <div class="card" id="overview">
+            <h2>📖 What Is This?</h2>
+            <p>
+                This guide explains how to use the <strong>SSH key pair</strong> stored in the <code>.ssh/</code> folder 
+                of this project. SSH keys let you securely connect to GitHub <strong>without typing a password</strong> every time.
+            </p>
+            <p>
+                Once set up, you can <code>git push</code>, <code>git pull</code>, and <code>git clone</code> without 
+                GitHub asking for credentials.
+            </p>
+
+            <div class="alert alert-warning">
+                <strong>⚠️ Important:</strong> The private key (<code>github_rsa</code>) is like a password. 
+                Never share it publicly or commit it to a public repository. This project is private — keep it that way 
+                if the key files are included.
+            </div>
+        </div>
+
+        <!-- TABLE OF CONTENTS -->
+        <div class="card" id="toc-card">
+            <h2>🗂 Quick Navigation</h2>
+            <div class="toc">
+                <a href="#overview">Overview</a>
+                <a href="#what-is-ssh">What is SSH?</a>
+                <a href="#key-structure">Key Files</a>
+                <a href="#setup-github">Setup on GitHub</a>
+                <a href="#push-code">Push Code</a>
+                <a href="#clone-elsewhere">Clone Elsewhere</a>
+                <a href="#manage-multiple">Multiple Keys</a>
+                <a href="#troubleshoot">Troubleshooting</a>
+                <a href="#security">Security Tips</a>
+            </div>
+        </div>
+
+        <!-- WHAT IS SSH? -->
+        <div class="card" id="what-is-ssh">
+            <h2>🔍 What Is SSH &amp; How Does It Work?</h2>
+            
+            <h3>The Problem It Solves</h3>
+            <p>
+                When you push code to GitHub, GitHub needs to verify <strong>who you are</strong>. 
+                Previously, you could use your password. But in 2021, GitHub disabled password authentication for Git operations 
+                because passwords are easily guessed, phished, or leaked.
+            </p>
+
+            <h3>How SSH Works (Simplified)</h3>
+            <p>SSH uses <strong>public-key cryptography</strong> — two mathematically linked keys:</p>
+            <ul>
+                <li><strong>🔒 Private Key</strong> (<code>github_rsa</code>) — Stays on your computer. Never shared. Like a physical key to your house.</li>
+                <li><strong>🔓 Public Key</strong> (<code>github_rsa.pub</code>) — You give this to GitHub. Like a lock that only your private key can open.</li>
+            </ul>
+            <p>
+                When you <code>git push</code>, your computer uses the private key to sign a message. GitHub checks it 
+                against the public key you uploaded. If they match → authenticated. No password needed, ever.
+            </p>
+
+            <div class="alert alert-info">
+                <strong>💡 Analogy:</strong> Think of the public key as a padlock you give to GitHub. 
+                The private key is the only key that opens that padlock. When you push code, you prove you 
+                have the key — without ever showing it.
+            </div>
+        </div>
+
+        <!-- KEY FILES -->
+        <div class="card" id="key-structure">
+            <h2>📁 Key File Structure</h2>
+            <p>Your SSH keys are stored in:</p>
+            <div class="code-block">
+                <span class="file">our day/</span><br>
+                ├── <span class="file">.ssh/</span><br>
+                │   ├── <span class="cmd">github_rsa</span>       ← 🔒 Private key (keep secret!)<br>
+                │   └── <span class="cmd">github_rsa.pub</span>   ← 🔓 Public key (upload to GitHub)<br>
+                ├── index.html<br>
+                └── README.html
+            </div>
+
+            <h3>Your Public Key</h3>
+            <p>Copy this entire line and add it to GitHub (see next section):</p>
+            
+            <div class="key-label">📋 github_rsa.pub — Click to select all</div>
+            <div class="key-display">ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKG4t8XDsfN26phuS10R0EQV27erUWlyOIwtcW8sIsp1 ghaziomairi93@github</div>
+
+            <h3>Key Details</h3>
+            <ul>
+                <li><strong>Type:</strong> Ed25519 (modern, fast, most secure)</li>
+                <li><strong>Bits:</strong> 256-bit elliptic curve</li>
+                <li><strong>Comment:</strong> <code>ghaziomairi93@github</code> (identifies this key)</li>
+                <li><strong>No passphrase:</strong> The key was generated without a passphrase for convenience</li>
+            </ul>
+
+            <div class="alert alert-warning">
+                <strong>🔐 Passphrase note:</strong> This key has no passphrase (password on the key itself). 
+                This means anyone with access to the <code>github_rsa</code> file can push as you. 
+                For production projects, always use a passphrase-protected key. 
+                See <a href="#add-passphrase" style="color:var(--rose-dark);">Adding a Passphrase</a> below.
+            </div>
+        </div>
+
+        <!-- SETUP ON GITHUB -->
+        <div class="card" id="setup-github">
+            <h2><span class="step-num">1</span> Add the Public Key to GitHub</h2>
+            
+            <ol>
+                <li>
+                    <strong>Copy your public key</strong> — the long string starting with <code>ssh-ed25519</code> shown above.
+                </li>
+                <li>
+                    <strong>Go to GitHub SSH settings:</strong><br>
+                    <a href="https://github.com/settings/keys" target="_blank" style="color:var(--rose-dark);">https://github.com/settings/keys</a>
+                </li>
+                <li>
+                    Click the green <strong>"New SSH Key"</strong> button.
+                </li>
+                <li>
+                    <strong>Title:</strong> Enter a descriptive name like <code>Laptop - Ghazi Khutouba</code>
+                </li>
+                <li>
+                    <strong>Key type:</strong> Leave as "Authentication Key"
+                </li>
+                <li>
+                    <strong>Key:</strong> Paste the entire public key (<code>ssh-ed25519 AAA...</code>)
+                </li>
+                <li>
+                    Click <strong>"Add SSH Key"</strong>
+                </li>
+            </ol>
+
+            <h3>Verify It Worked</h3>
+            <p>In your terminal, run:</p>
+            <div class="code-block">
+                <span class="prompt">$</span> <span class="cmd">ssh -T git@github.com</span>
+            </div>
+            <p>You should see:</p>
+            <div class="code-block">
+                <span class="cmd">Hi ghaziomairi93! You've successfully authenticated, but GitHub does not provide shell access.</span>
+            </div>
+            <div class="alert alert-success">
+                <strong>✅ Success!</strong> If you see your username, SSH is working. You can now push code without a password.
+            </div>
+        </div>
+
+        <!-- PUSH CODE -->
+        <div class="card" id="push-code">
+            <h2><span class="step-num">2</span> Push the Invitation to GitHub</h2>
+            
+            <p>Now that SSH is set up, pushing code is simple:</p>
+            <div class="code-block">
+                <span class="prompt">$</span> <span class="cmd">cd "our day"</span><br>
+                <span class="prompt">$</span> <span class="cmd">git add .</span><br>
+                <span class="prompt">$</span> <span class="cmd">git commit -m "Add invitation and SSH setup"</span><br>
+                <span class="prompt">$</span> <span class="cmd">git push -u origin main</span>
+            </div>
+
+            <p>The remote is already configured:</p>
+            <div class="code-block">
+                <span class="cmd">git@github.com:ghaziomairi93/G-B.git</span>
+            </div>
+        </div>
+
+        <!-- CLONE ELSEWHERE -->
+        <div class="card" id="clone-elsewhere">
+            <h2><span class="step-num">3</span> Clone This Repo on Another Computer</h2>
+            
+            <p>If you want to work on this project from a different machine:</p>
+
+            <h3>Option A: Copy the SSH key (easier)</h3>
+            <ol>
+                <li>Copy the <code>.ssh/</code> folder from this project to the new computer</li>
+                <li>Place it in the same project folder on the new machine</li>
+                <li>Add the private key to your SSH agent:
+                    <div class="code-block">
+                        <span class="prompt">$</span> <span class="cmd">ssh-add .ssh/github_rsa</span>
+                    </div>
+                </li>
+                <li>Clone normally:
+                    <div class="code-block">
+                        <span class="prompt">$</span> <span class="cmd">git clone git@github.com:ghaziomairi93/G-B.git</span>
+                    </div>
+                </li>
+            </ol>
+
+            <h3>Option B: Generate a new key (safer)</h3>
+            <ol>
+                <li>Generate a fresh key pair on the new machine:
+                    <div class="code-block">
+                        <span class="prompt">$</span> <span class="cmd">ssh-keygen -t ed25519 -C "new-computer@github"</span>
+                    </div>
+                </li>
+                <li>Add the new public key to GitHub (same as Step 1 above)</li>
+                <li>Clone the repo</li>
+            </ol>
+        </div>
+
+        <!-- MULTIPLE KEYS -->
+        <div class="card" id="manage-multiple">
+            <h2>🗃 Managing Multiple SSH Keys</h2>
+            
+            <p>If you have multiple GitHub accounts or repos with different keys, use an SSH config file:</p>
+
+            <div class="code-block">
+                <span class="comment"># File: ~/.ssh/config</span><br><br>
+                <span class="cmd">Host github-ghazi</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="cmd">HostName github.com</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="cmd">User git</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="cmd">IdentityFile ~/path/to/project/.ssh/github_rsa</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span class="cmd">IdentitiesOnly yes</span>
+            </div>
+
+            <p>Then use the custom host in your remote:</p>
+            <div class="code-block">
+                <span class="prompt">$</span> <span class="cmd">git remote set-url origin git@github-ghazi:ghaziomairi93/G-B.git</span>
+            </div>
+        </div>
+
+        <!-- ADD PASSPHRASE -->
+        <div class="card" id="add-passphrase">
+            <h2>🔐 Adding a Passphrase to the Private Key</h2>
+            
+            <p>For extra security, you can add a password (passphrase) to the private key:</p>
+            <div class="code-block">
+                <span class="prompt">$</span> <span class="cmd">ssh-keygen -p -f .ssh/github_rsa</span>
+            </div>
+            <p>
+                You'll be prompted to enter (and confirm) a passphrase. After this, every push/pull will ask for 
+                that passphrase. You can cache it in memory with:
+            </p>
+            <div class="code-block">
+                <span class="prompt">$</span> <span class="cmd">ssh-add .ssh/github_rsa</span>
+            </div>
+        </div>
+
+        <!-- TROUBLESHOOTING -->
+        <div class="card" id="troubleshoot">
+            <h2>🛠 Troubleshooting</h2>
+
+            <h3>❌ "Permission denied (publickey)"</h3>
+            <ul>
+                <li>Did you add the public key to GitHub? Go to <a href="https://github.com/settings/keys" target="_blank" style="color:var(--rose-dark);">Settings → SSH Keys</a></li>
+                <li>Is the key format correct? It must start with <code>ssh-ed25519</code></li>
+                <li>Test your connection: <code>ssh -Tv git@github.com</code> (verbose mode shows details)</li>
+            </ul>
+
+            <h3>❌ "Host key verification failed"</h3>
+            <ul>
+                <li>This means your computer doesn't recognize GitHub's server</li>
+                <li>Run: <code>ssh-keyscan github.com >> ~/.ssh/known_hosts</code></li>
+                <li>Then try again</li>
+            </ul>
+
+            <h3>❌ "Bad permissions" on the private key</h3>
+            <ul>
+                <li>SSH requires the private key to be readable ONLY by you</li>
+                <li>On Mac/Linux: <code>chmod 600 .ssh/github_rsa</code></li>
+                <li>On Windows (PowerShell as Admin): Fix the file permissions in Properties → Security</li>
+            </ul>
+
+            <h3>❌ Git still asks for username/password</h3>
+            <ul>
+                <li>Check that the remote is using SSH, not HTTPS:</li>
+                <li><code>git remote -v</code> — should show <code>git@github.com:...</code></li>
+                <li>If it shows <code>https://...</code>, change it:
+                    <div class="code-block">
+                        <span class="prompt">$</span> <span class="cmd">git remote set-url origin git@github.com:ghaziomairi93/G-B.git</span>
+                    </div>
+                </li>
+            </ul>
+
+            <h3>❌ SSH agent not running (Windows)</h3>
+            <ul>
+                <li>Open PowerShell as Administrator and run:
+                    <div class="code-block">
+                        <span class="prompt">PS&gt;</span> <span class="cmd">Get-Service ssh-agent | Set-Service -StartupType Automatic</span><br>
+                        <span class="prompt">PS&gt;</span> <span class="cmd">Start-Service ssh-agent</span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- SECURITY -->
+        <div class="card" id="security">
+            <h2>🛡 Security Best Practices</h2>
+            
+            <div class="alert alert-security">
+                <strong>🚨 Critical:</strong> The <code>github_rsa</code> file is your digital identity on GitHub. 
+                Anyone with this file can push code as you, access your repos, and potentially do damage.
+            </div>
+
+            <h3>Do's ✅</h3>
+            <ul>
+                <li>Keep this repository <strong>private</strong> if the <code>.ssh/</code> folder is included</li>
+                <li>Use a passphrase on the private key (see <a href="#add-passphrase" style="color:var(--rose-dark);">Adding a Passphrase</a>)</li>
+                <li>Revoke the key on GitHub immediately if you suspect it was leaked</li>
+                <li>Use separate keys for different projects or machines</li>
+                <li>Periodically check your GitHub SSH keys at <a href="https://github.com/settings/keys" target="_blank" style="color:var(--rose-dark);">Settings → SSH Keys</a></li>
+            </ul>
+
+            <h3>Don'ts ❌</h3>
+            <ul>
+                <li>Never commit the private key to a public repository</li>
+                <li>Never share the private key via email, chat, or cloud drives</li>
+                <li>Don't use the same key for personal and work projects</li>
+                <li>Don't leave the key on shared or public computers</li>
+            </ul>
+        </div>
+
+        <!-- QUICK REFERENCE -->
+        <div class="card" id="quick-ref">
+            <h2>📋 Quick Reference Commands</h2>
+
+            <table style="width:100%;border-collapse:collapse;margin-top:1rem;">
+                <tr style="border-bottom:1px solid var(--border);">
+                    <td style="padding:0.6rem 0.5rem;"><strong>Test SSH connection</strong></td>
+                    <td style="padding:0.6rem 0.5rem;"><code>ssh -T git@github.com</code></td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--border);">
+                    <td style="padding:0.6rem 0.5rem;"><strong>Check remote URL</strong></td>
+                    <td style="padding:0.6rem 0.5rem;"><code>git remote -v</code></td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--border);">
+                    <td style="padding:0.6rem 0.5rem;"><strong>Push to GitHub</strong></td>
+                    <td style="padding:0.6rem 0.5rem;"><code>git push origin main</code></td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--border);">
+                    <td style="padding:0.6rem 0.5rem;"><strong>Pull latest changes</strong></td>
+                    <td style="padding:0.6rem 0.5rem;"><code>git pull origin main</code></td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--border);">
+                    <td style="padding:0.6rem 0.5rem;"><strong>List SSH keys loaded</strong></td>
+                    <td style="padding:0.6rem 0.5rem;"><code>ssh-add -l</code></td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--border);">
+                    <td style="padding:0.6rem 0.5rem;"><strong>Add key to agent</strong></td>
+                    <td style="padding:0.6rem 0.5rem;"><code>ssh-add .ssh/github_rsa</code></td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--border);">
+                    <td style="padding:0.6rem 0.5rem;"><strong>View public key</strong></td>
+                    <td style="padding:0.6rem 0.5rem;"><code>cat .ssh/github_rsa.pub</code></td>
+                </tr>
+                <tr>
+                    <td style="padding:0.6rem 0.5rem;"><strong>Add passphrase</strong></td>
+                    <td style="padding:0.6rem 0.5rem;"><code>ssh-keygen -p -f .ssh/github_rsa</code></td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- ENJOY -->
+        <div class="card" id="enjoy">
+            <h2>💐 That's It!</h2>
+            <p>
+                You're all set. Push your beautiful khutouba invitation to GitHub and share it with the world. 
+                Every <code>git push</code> from now on will just work — no passwords, no tokens, no friction.
+            </p>
+            <p style="text-align:center;font-size:1.3rem;color:var(--rose-dark);margin-top:1.5rem;">
+                ✨ Ghazi &amp; Bayan — July 31, 2026 ✨
+            </p>
+        </div>
+
+        <div class="footer">
+            Generated for the G-B repository · <a href="https://github.com/ghaziomairi93/G-B" style="color:var(--rose-dark);">github.com/ghaziomairi93/G-B</a>
+        </div>
+
+    </div>
+</body>
+</html>

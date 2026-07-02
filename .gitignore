@@ -16,5 +16,8 @@ node_modules/
 .env
 .env.local
 
+# SSH private keys (keep secret!)
+.ssh/github_rsa
+
 # Logs
 *.log
