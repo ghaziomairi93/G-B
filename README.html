@@ -291,6 +291,7 @@
                 <a href="#key-structure">Key Files</a>
                 <a href="#setup-github">Setup on GitHub</a>
                 <a href="#push-code">Push Code</a>
+                <a href="#netlify">Deploy to Netlify</a>
                 <a href="#clone-elsewhere">Clone Elsewhere</a>
                 <a href="#manage-multiple">Multiple Keys</a>
                 <a href="#troubleshoot">Troubleshooting</a>
@@ -420,6 +421,149 @@
             <p>The remote is already configured:</p>
             <div class="code-block">
                 <span class="cmd">git@github.com:ghaziomairi93/G-B.git</span>
+            </div>
+        </div>
+
+        <!-- NETLIFY DEPLOYMENT -->
+        <div class="card" id="netlify">
+            <h2>🚀 Deploy the Invitation to Netlify</h2>
+
+            <div class="alert alert-info">
+                <strong>💡 Why Netlify?</strong> GitHub Pages gives you a URL like <code>ghaziomairi93.github.io/G-B</code>. 
+                Netlify gives you a clean subdomain you choose — like <code>ghazi-bayan.netlify.app</code>. 
+                No username in the URL. It's free, and every <code>git push</code> auto-redeploys.
+            </div>
+
+            <h3>What Is Netlify?</h3>
+            <p>
+                Netlify is a hosting platform for static websites (HTML, CSS, JS). It connects directly to your GitHub repo. 
+                When you push changes to GitHub, Netlify automatically detects them and redeploys your site — usually in under 30 seconds.
+            </p>
+            <p>
+                Key features:
+            </p>
+            <ul>
+                <li><strong>Free</strong> — generous free tier (100 GB bandwidth/month, 300 build minutes)</li>
+                <li><strong>Custom subdomain</strong> — pick your own <code>_____.netlify.app</code> name</li>
+                <li><strong>Auto-deploy on git push</strong> — same workflow as GitHub Pages, just push and it's live</li>
+                <li><strong>Custom domains</strong> — connect your own domain (e.g., <code>ghaziandbayan.com</code>)</li>
+                <li><strong>HTTPS automatically</strong> — free SSL certificate included</li>
+                <li><strong>Instant rollbacks</strong> — one click to revert to any previous version</li>
+            </ul>
+
+            <h3>Option A: Deploy via Netlify Website (easiest, 2 minutes)</h3>
+            <ol>
+                <li>
+                    <strong>Go to Netlify:</strong><br>
+                    <a href="https://app.netlify.com/start" target="_blank" style="color:var(--rose-dark);">https://app.netlify.com/start</a>
+                </li>
+                <li>
+                    Click <strong>"Log in with GitHub"</strong> and authorize Netlify.
+                </li>
+                <li>
+                    Click <strong>"Add new site"</strong> → <strong>"Import an existing project"</strong>.
+                </li>
+                <li>
+                    Select <strong>GitHub</strong>, then find and select the <code>G-B</code> repository.
+                </li>
+                <li>
+                    <strong>Configure the deploy:</strong>
+                    <ul>
+                        <li><strong>Branch to deploy:</strong> <code>main</code></li>
+                        <li><strong>Build command:</strong> leave blank (it's a static HTML site)</li>
+                        <li><strong>Publish directory:</strong> leave blank or enter <code>.</code> (root folder)</li>
+                    </ul>
+                </li>
+                <li>
+                    Click <strong>"Deploy G-B"</strong>.
+                </li>
+                <li>
+                    Once deployed, click <strong>"Site settings"</strong> → <strong>"Change site name"</strong> 
+                    and pick a clean name like <code>ghazi-bayan</code>.
+                </li>
+            </ol>
+            <p>Your site will be live at: <code>https://ghazi-bayan.netlify.app</code> (or whatever name you choose).</p>
+
+            <h3>Option B: Deploy via Netlify CLI (from terminal)</h3>
+            <ol>
+                <li>
+                    <strong>Install Netlify CLI</strong> (one-time):
+                    <div class="code-block">
+                        <span class="prompt">$</span> <span class="cmd">npm install -g netlify-cli</span>
+                    </div>
+                </li>
+                <li>
+                    <strong>Login to Netlify:</strong>
+                    <div class="code-block">
+                        <span class="prompt">$</span> <span class="cmd">netlify login</span>
+                    </div>
+                    This opens a browser window — click "Authorize".
+                </li>
+                <li>
+                    <strong>Initialize Netlify in your project:</strong>
+                    <div class="code-block">
+                        <span class="prompt">$</span> <span class="cmd">cd "our day"</span><br>
+                        <span class="prompt">$</span> <span class="cmd">netlify init</span>
+                    </div>
+                    Follow the prompts:
+                    <ul>
+                        <li>"Create & configure a new site"</li>
+                        <li>Choose your team</li>
+                        <li>Site name: <code>ghazi-bayan</code> (or any name you want)</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Deploy:</strong>
+                    <div class="code-block">
+                        <span class="prompt">$</span> <span class="cmd">netlify deploy --prod --dir .</span>
+                    </div>
+                </li>
+            </ol>
+
+            <h3>How Auto-Deploy Works</h3>
+            <p>
+                Once connected to GitHub, the workflow is automatic:
+            </p>
+            <div class="code-block">
+                <span class="comment">1. You edit index.html locally</span><br>
+                <span class="comment">2. git add . && git commit -m "updates" && git push</span><br>
+                <span class="comment">3. Netlify detects the push → rebuilds → deploys (~30 seconds)</span><br>
+                <span class="comment">4. Your site is live with the new changes!</span>
+            </div>
+
+            <h3>Connecting a Custom Domain</h3>
+            <p>If you buy a domain (like <code>ghaziandbayan.com</code>), you can connect it to Netlify:</p>
+            <ol>
+                <li>Go to your site dashboard → <strong>Domain settings</strong> → <strong>Add custom domain</strong></li>
+                <li>Enter your domain and follow the DNS setup instructions</li>
+                <li>Netlify provides the nameservers or DNS records you need to add at your domain registrar</li>
+                <li>Once DNS propagates (up to 24 hours), your site is at your custom domain with free HTTPS</li>
+            </ol>
+
+            <div class="alert alert-success">
+                <strong>✅ Pro tip:</strong> Netlify also gives you <strong>deploy previews</strong> — when you create a pull request on GitHub, 
+                Netlify automatically builds a preview URL so you can see changes before they go live. 
+                Perfect for reviewing invitation updates!
+            </div>
+
+            <h3>Redeploying Manually</h3>
+            <p>If you ever need to trigger a manual redeploy (without pushing to git):</p>
+            <div class="code-block">
+                <span class="prompt">$</span> <span class="cmd">netlify deploy --prod --dir .</span>
+            </div>
+            <p>Or go to your Netlify dashboard, click <strong>"Deploys"</strong> → <strong>"Trigger deploy"</strong> → <strong>"Clear cache and deploy site"</strong>.</p>
+
+            <h3>Rolling Back</h3>
+            <p>If a deploy breaks something, you can instantly go back:</p>
+            <ol>
+                <li>Go to your Netlify dashboard → <strong>Deploys</strong></li>
+                <li>Find the last working deploy in the list</li>
+                <li>Click <strong>"Publish deploy"</strong> — your site instantly reverts</li>
+            </ol>
+
+            <div class="alert alert-warning">
+                <strong>📝 Note:</strong> Netlify's free tier includes 100 GB bandwidth and 300 build minutes per month — 
+                more than enough for an invitation site. If your site gets very popular, you might want to upgrade.
             </div>
         </div>
 
@@ -591,6 +735,10 @@
                     <td style="padding:0.6rem 0.5rem;"><code>git pull origin main</code></td>
                 </tr>
                 <tr style="border-bottom:1px solid var(--border);">
+                    <td style="padding:0.6rem 0.5rem;"><strong>Deploy to Netlify (manual)</strong></td>
+                    <td style="padding:0.6rem 0.5rem;"><code>netlify deploy --prod --dir .</code></td>
+                </tr>
+                <tr style="border-bottom:1px solid var(--border);">
                     <td style="padding:0.6rem 0.5rem;"><strong>List SSH keys loaded</strong></td>
                     <td style="padding:0.6rem 0.5rem;"><code>ssh-add -l</code></td>
                 </tr>
@@ -613,8 +761,11 @@
         <div class="card" id="enjoy">
             <h2>💐 That's It!</h2>
             <p>
-                You're all set. Push your beautiful khutouba invitation to GitHub and share it with the world. 
+                You're all set. Push your beautiful khutouba invitation to GitHub, deploy to Netlify, and share it with the world. 
                 Every <code>git push</code> from now on will just work — no passwords, no tokens, no friction.
+            </p>
+            <p style="text-align:center;margin-top:1rem;">
+                🌐 Live at: <a href="https://ghazi-bayan.netlify.app" style="color:var(--rose-dark);font-weight:600;">ghazi-bayan.netlify.app</a>
             </p>
             <p style="text-align:center;font-size:1.3rem;color:var(--rose-dark);margin-top:1.5rem;">
                 ✨ Ghazi &amp; Bayan — July 31, 2026 ✨
