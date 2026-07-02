@@ -4,87 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>خطوبة غازي وبيان | Ghazi &amp; Bayan - Khutouba</title>
-    
-    <!-- Google Fonts: Elegant Arabic + English pairing with system fallbacks -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Great+Vibes&family=Raleway:ital,wght@0,200;0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
-
     <style>
-        /* ===== RESET & BASE ===== */
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
         :root {
-            --cream: #fdf6f0;
-            --blush: #f4e0e1;
-            --rose: #d4a0a7;
-            --rose-dark: #b07b84;
-            --dusty-pink: #c9a1a6;
-            --gold: #c4a35a;
-            --gold-light: #d4b96a;
-            --gold-pale: #f0e6ce;
-            --text-dark: #3d2c2e;
-            --text-medium: #6b5558;
-            --text-light: #6d5a5c;
-            --white: #fffaf8;
-            --shadow-soft: 0 4px 30px rgba(61, 44, 46, 0.08);
-            --shadow-medium: 0 8px 50px rgba(61, 44, 46, 0.12);
+            --cream: #fef8f2;
+            --bg: #fdf3ea;
+            --rose: #e0a68e;
+            --rose-dark: #c88267;
+            --gold: #c49a55;
+            --gold-light: #d4af6a;
+            --text-dark: #3d2820;
+            --text-medium: #6b4d3f;
+            --text-light: #7a5e52;
+            --white: #fffaf6;
+            --shadow-soft: 0 4px 30px rgba(61, 40, 32, 0.07);
+            --shadow-medium: 0 8px 50px rgba(61, 40, 32, 0.11);
         }
-
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 2rem;
-        }
-
+        html { scroll-behavior: smooth; scroll-padding-top: 2rem; }
         body {
             font-family: 'Cormorant Garamond', 'Georgia', 'Times New Roman', 'Amiri', serif;
-            background: var(--cream);
+            background: linear-gradient(180deg, #fdf3ea 0%, #faf0e6 50%, #fdf3ea 100%);
             color: var(--text-dark);
             line-height: 1.8;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
-
-        /* ===== FLORAL BACKGROUND TEXTURE ===== */
         .floral-bg {
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            pointer-events: none;
-            z-index: 0;
-            opacity: 0.04;
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            pointer-events: none; z-index: 0; opacity: 0.05;
             background-image:
-                radial-gradient(ellipse at 20% 15%, #d4a0a7 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 25%, #d4a0a7 0%, transparent 50%),
-                radial-gradient(ellipse at 50% 60%, #c4a35a 0%, transparent 40%),
-                radial-gradient(ellipse at 15% 75%, #d4a0a7 0%, transparent 45%),
-                radial-gradient(ellipse at 85% 80%, #d4a0a7 0%, transparent 45%);
+                radial-gradient(ellipse at 20% 15%, #e0a68e 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 25%, #e0a68e 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 60%, #c49a55 0%, transparent 40%),
+                radial-gradient(ellipse at 15% 75%, #e0a68e 0%, transparent 45%),
+                radial-gradient(ellipse at 85% 80%, #e0a68e 0%, transparent 45%);
         }
-
-        /* ===== FLOATING PETALS ===== */
-        .petals-container {
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            pointer-events: none;
-            z-index: 1;
-            overflow: hidden;
-        }
-
-        .petal {
-            position: absolute;
-            top: -60px;
-            opacity: 0;
-            animation: fall linear infinite;
-            pointer-events: none;
-        }
-
-        .petal::before {
-            content: '🌸';
-            font-size: 1.5rem;
-            display: block;
-            filter: blur(0.5px);
-        }
-
+        .petals-container { position: fixed; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; z-index: 1; overflow: hidden; }
+        .petal { position: absolute; top: -60px; opacity: 0; animation: fall linear infinite; pointer-events: none; }
+        .petal::before { content: '🌺'; font-size: 1.5rem; display: block; filter: blur(0.5px); }
         .petal:nth-child(1) { left: 5%; animation-duration: 18s; animation-delay: 0s; }
         .petal:nth-child(2) { left: 15%; animation-duration: 22s; animation-delay: 3s; }
         .petal:nth-child(3) { left: 25%; animation-duration: 20s; animation-delay: 6s; }
@@ -95,840 +55,179 @@
         .petal:nth-child(8) { left: 75%; animation-duration: 17s; animation-delay: 2s; }
         .petal:nth-child(9) { left: 85%; animation-duration: 24s; animation-delay: 7s; }
         .petal:nth-child(10) { left: 92%; animation-duration: 20s; animation-delay: 5s; }
-
         @keyframes fall {
-            0% {
-                transform: translateY(-60px) rotate(0deg) scale(0.8);
-                opacity: 0;
-            }
-            5% {
-                opacity: 0.7;
-            }
-            50% {
-                opacity: 0.5;
-            }
-            90% {
-                opacity: 0.3;
-            }
-            100% {
-                transform: translateY(105vh) rotate(720deg) scale(0.3);
-                opacity: 0;
-            }
+            0% { transform: translateY(-60px) rotate(0deg) scale(0.8); opacity: 0; }
+            5% { opacity: 0.7; }
+            50% { opacity: 0.5; }
+            90% { opacity: 0.3; }
+            100% { transform: translateY(105vh) rotate(720deg) scale(0.3); opacity: 0; }
         }
-
-        /* ===== MAIN CONTAINER ===== */
-        .main-wrapper {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 1.5rem 1.5rem 2rem;
-        }
-
-        /* ===== SECTION CARD ===== */
+        .main-wrapper { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
         .section-card {
-            background: var(--white);
-            border-radius: 1.5rem;
-            padding: 2rem 2rem;
-            margin-bottom: 1rem;
-            box-shadow: var(--shadow-soft);
-            position: relative;
-            overflow: hidden;
-            text-align: center;
-            border: 1px solid rgba(212, 160, 167, 0.15);
+            background: var(--white); border-radius: 2rem; padding: 3.5rem 2.5rem;
+            margin-bottom: 2rem; box-shadow: var(--shadow-soft); position: relative;
+            overflow: hidden; text-align: center; border: 1px solid rgba(224, 166, 142, 0.18);
             transition: transform 0.4s ease, box-shadow 0.4s ease;
         }
-
-        .section-card:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-medium);
+        .section-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-medium); }
+        .section-card::before, .section-card::after {
+            position: absolute; pointer-events: none; opacity: 0.1; font-size: 5rem; line-height: 1;
         }
-
-        /* ===== CARD FLORAL CORNERS ===== */
-        .section-card::before,
-        .section-card::after {
-            position: absolute;
-            pointer-events: none;
-            opacity: 0.08;
-            font-size: 3.5rem;
-            line-height: 1;
-        }
-
-        .section-card::before {
-            content: '🌿';
-            top: -0.5rem;
-            left: 0.5rem;
-            transform: rotate(-15deg);
-        }
-
-        .section-card::after {
-            content: '🌿';
-            bottom: -0.5rem;
-            right: 0.5rem;
-            transform: rotate(165deg);
-        }
-
-        /* ===== FLORAL DIVIDER ===== */
+        .section-card::before { content: '🌿'; top: -0.5rem; left: 0.5rem; transform: rotate(-15deg); }
+        .section-card::after { content: '🌿'; bottom: -0.5rem; right: 0.5rem; transform: rotate(165deg); }
         .floral-divider {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.8rem;
-            margin: 1rem 0;
-            color: var(--rose);
-            font-size: 1rem;
-            opacity: 0.7;
+            display: flex; align-items: center; justify-content: center; gap: 1rem;
+            margin: 2rem 0; color: var(--rose); font-size: 1.2rem; opacity: 0.7;
         }
-
-        .floral-divider::before,
-        .floral-divider::after {
-            content: '';
-            flex: 1;
-            max-width: 80px;
-            height: 1px;
+        .floral-divider::before, .floral-divider::after {
+            content: ''; flex: 1; max-width: 80px; height: 1px;
             background: linear-gradient(to right, transparent, var(--rose), transparent);
         }
-
-        .floral-divider.small { margin: 0.5rem 0; font-size: 0.8rem; }
-        .floral-divider.small::before,
-        .floral-divider.small::after { max-width: 30px; }
-
-        /* ===== HERO SECTION ===== */
-        .hero-card {
-            padding: 2.5rem 2rem 2rem;
-            background: linear-gradient(180deg, var(--white) 0%, #fff5f5 100%);
-            border: 1px solid rgba(212, 160, 167, 0.25);
-        }
-
-        .hero-card::before,
-        .hero-card::after { opacity: 0.1; font-size: 4rem; }
-
-        .hero-top-ornament {
-            font-size: 1.6rem;
-            letter-spacing: 0.4rem;
-            margin-bottom: 0.8rem;
-            color: var(--rose);
-            opacity: 0.6;
-        }
-
-        .hero-label-en {
-            font-family: 'Raleway', sans-serif;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.35rem;
-            color: var(--text-light);
-            margin-bottom: 0.75rem;
-            font-weight: 300;
-        }
-
-        .hero-label-ar {
-            font-family: 'Amiri', serif;
-            font-size: 1.1rem;
-            color: var(--rose-dark);
-            margin-bottom: 0.5rem;
-            font-weight: 400;
-            lang: ar;
-        }
-
+        .floral-divider.small { margin: 1rem 0; font-size: 0.9rem; }
+        .floral-divider.small::before, .floral-divider.small::after { max-width: 40px; }
+        .hero-card { padding: 4rem 2.5rem; background: linear-gradient(180deg, var(--white) 0%, #fff5ef 100%); border: 1px solid rgba(224, 166, 142, 0.25); }
+        .hero-card::before, .hero-card::after { opacity: 0.13; font-size: 6rem; }
+        .hero-top-ornament { font-size: 2.5rem; letter-spacing: 0.5rem; margin-bottom: 1.5rem; color: var(--rose); opacity: 0.6; }
+        .hero-label-en { font-family: 'Raleway', sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.35rem; color: var(--text-light); margin-bottom: 0.75rem; font-weight: 300; }
+        .hero-label-ar { font-family: 'Amiri', serif; font-size: 1.1rem; color: var(--rose-dark); margin-bottom: 0.5rem; font-weight: 400; }
         .hero-names {
-            font-family: 'Great Vibes', cursive;
-            font-size: 3.5rem;
-            color: var(--text-dark);
-            /* Fallback for non-latin */
-            font-weight: 400;
-            line-height: 1.2;
-            margin: 0.5rem 0;
+            font-family: 'Great Vibes', cursive; font-size: 4.5rem; font-weight: 400; line-height: 1.2; margin: 0.5rem 0;
             background: linear-gradient(135deg, var(--text-dark) 30%, var(--rose-dark) 70%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
         }
-
-        .hero-names .ampersand {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2.5rem;
-            -webkit-text-fill-color: var(--gold);
-            vertical-align: middle;
-            margin: 0 0.5rem;
-            font-style: italic;
-        }
-
-        .hero-names-ar {
-            font-family: 'Amiri', 'Traditional Arabic', 'Times New Roman', serif;
-            font-size: 2.2rem;
-            color: var(--text-dark);
-            margin: 0.5rem 0 0.2rem;
-            font-weight: 700;
-            line-height: 1.3;
-        }
-
-        .hero-subtitle {
-            font-family: 'Raleway', sans-serif;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.3rem;
-            color: var(--rose-dark);
-            margin-top: 1rem;
-            font-weight: 300;
-        }
-
-        .hero-date-preview {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.4rem;
-            color: var(--gold);
-            margin-top: 1.5rem;
-            font-style: italic;
-            font-weight: 400;
-        }
-
-        /* ===== VERSE SECTION ===== */
-        .verse-card {
-            background: linear-gradient(180deg, #fffaf6 0%, #fdf5f0 100%);
-            border: 1px solid rgba(196, 163, 90, 0.2);
-        }
-
-        .verse-arabic {
-            font-family: 'Amiri', serif;
-            font-size: 1.35rem;
-            line-height: 2.1;
-            color: var(--text-dark);
-            font-weight: 400;
-            direction: rtl;
-            unicode-bidi: embed;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .verse-translation {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            color: var(--text-medium);
-            font-style: italic;
-            max-width: 500px;
-            margin: 0.8rem auto 0;
-            direction: ltr;
-        }
-
-        .verse-reference {
-            font-family: 'Raleway', sans-serif;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.2rem;
-            color: var(--text-light);
-            margin-top: 1rem;
-        }
-
-        .bismillah {
-            font-family: 'Amiri', serif;
-            font-size: 1.8rem;
-            color: var(--gold);
-            margin-bottom: 0.8rem;
-            opacity: 0.8;
-        }
-
-        /* ===== COUNTDOWN SECTION ===== */
-        .countdown-card {
-            background: linear-gradient(180deg, #fff5f7 0%, var(--white) 100%);
-            border: 1px solid rgba(212, 160, 167, 0.2);
-        }
-
-        .countdown-title {
-            font-family: 'Raleway', sans-serif;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.25rem;
-            color: var(--text-light);
-            margin-bottom: 1rem;
-            font-weight: 300;
-        }
-
-        .countdown-grid {
-            display: flex;
-            justify-content: center;
-            gap: 0.8rem;
-            flex-wrap: wrap;
-        }
-
+        .hero-names .ampersand { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; -webkit-text-fill-color: var(--gold); vertical-align: middle; margin: 0 0.5rem; font-style: italic; }
+        .hero-names-ar { font-family: 'Amiri', 'Traditional Arabic', serif; font-size: 3rem; color: var(--text-dark); margin: 0.5rem 0 0.2rem; font-weight: 700; line-height: 1.3; }
+        .hero-subtitle { font-family: 'Raleway', sans-serif; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.3rem; color: var(--rose-dark); margin-top: 1rem; font-weight: 300; }
+        .hero-date-preview { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--gold); margin-top: 1.5rem; font-style: italic; font-weight: 400; }
+        .verse-card { background: linear-gradient(180deg, #fffaf6 0%, #fdf3ea 100%); border: 1px solid rgba(196, 154, 85, 0.2); }
+        .verse-arabic { font-family: 'Amiri', serif; font-size: 1.75rem; line-height: 2.4; color: var(--text-dark); font-weight: 400; direction: rtl; unicode-bidi: embed; max-width: 600px; margin: 0 auto; }
+        .verse-translation { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; line-height: 1.8; color: var(--text-medium); font-style: italic; max-width: 500px; margin: 1.5rem auto 0; direction: ltr; }
+        .verse-reference { font-family: 'Raleway', sans-serif; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.2rem; color: var(--text-light); margin-top: 1rem; }
+        .bismillah { font-family: 'Amiri', serif; font-size: 2.5rem; color: var(--gold); margin-bottom: 1.5rem; opacity: 0.8; }
+        .countdown-card { background: linear-gradient(180deg, #fff8f3 0%, var(--white) 100%); border: 1px solid rgba(224, 166, 142, 0.2); }
+        .countdown-title { font-family: 'Raleway', sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.3rem; color: var(--text-light); margin-bottom: 2rem; font-weight: 300; }
+        .countdown-grid { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
         .countdown-item {
-            background: var(--white);
-            border-radius: 1rem;
-            padding: 0.9rem 0.8rem;
-            min-width: 70px;
-            box-shadow: 0 4px 20px rgba(61, 44, 46, 0.06);
-            border: 1px solid rgba(212, 160, 167, 0.2);
+            background: var(--white); border-radius: 1.2rem; padding: 1.5rem 1.2rem; min-width: 90px;
+            box-shadow: 0 4px 20px rgba(61, 40, 32, 0.05); border: 1px solid rgba(224, 166, 142, 0.2);
             transition: transform 0.3s ease;
         }
-
-        .countdown-item:hover {
-            transform: translateY(-4px);
-        }
-
-        .countdown-number {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 2rem;
-            font-weight: 500;
-            color: var(--rose-dark);
-            line-height: 1;
-            margin-bottom: 0.3rem;
-        }
-
-        .countdown-label {
-            font-family: 'Raleway', sans-serif;
-            font-size: 0.65rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15rem;
-            color: var(--text-light);
-            font-weight: 400;
-        }
-
-        .countdown-label-ar {
-            font-family: 'Amiri', serif;
-            font-size: 0.8rem;
-            color: var(--text-medium);
-            display: block;
-            margin-top: 0.15rem;
-            direction: rtl;
-        }
-
-        /* ===== EVENT DETAILS SECTION ===== */
-        .details-card {}
-
-        .detail-row {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.7rem;
-            margin: 0.6rem 0;
-            flex-wrap: wrap;
-        }
-
-        .detail-icon {
-            font-size: 1.3rem;
-            color: var(--rose);
-            flex-shrink: 0;
-        }
-
-        .detail-content {
-            text-align: start;
-            min-width: 180px;
-        }
-
-        .detail-label {
-            font-family: 'Raleway', sans-serif;
-            font-size: 0.6rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15rem;
-            color: var(--text-light);
-            font-weight: 400;
-            margin-bottom: 0.1rem;
-        }
-
-        .detail-value {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.15rem;
-            color: var(--text-dark);
-            font-weight: 500;
-        }
-
-        .detail-value-ar {
-            font-family: 'Amiri', serif;
-            font-size: 0.9rem;
-            color: var(--text-dark);
-            font-weight: 400;
-            direction: rtl;
-        }
-
-        .detail-value.placeholder {
-            color: var(--text-light);
-            font-style: italic;
-            font-size: 1.1rem;
-        }
-
-        /* ===== TIMELINE SECTION ===== */
-        .timeline-card {}
-
-        .timeline {
-            position: relative;
-            padding: 1rem 0;
-            max-width: 450px;
-            margin: 0 auto;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            top: 0; bottom: 0;
-            left: 50%;
-            width: 1px;
-            background: linear-gradient(to bottom, transparent, var(--rose), var(--rose), transparent);
-            opacity: 0.3;
-        }
-
-        .timeline-item {
-            position: relative;
-            padding: 1.2rem 0;
-            text-align: center;
-        }
-
-        .timeline-time {
-            font-family: 'Raleway', sans-serif;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.2rem;
-            color: var(--gold);
-            margin-bottom: 0.3rem;
-            font-weight: 500;
-        }
-
-        .timeline-event {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.3rem;
-            color: var(--text-dark);
-            font-weight: 500;
-        }
-
-        .timeline-event-ar {
-            font-family: 'Amiri', serif;
-            font-size: 1rem;
-            color: var(--text-medium);
-            direction: rtl;
-            display: block;
-        }
-
-        .timeline-dot {
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            background: var(--rose);
-            border-radius: 50%;
-            margin-bottom: 0.5rem;
-            position: relative;
-            z-index: 1;
-            box-shadow: 0 0 0 4px var(--white), 0 0 0 5px rgba(212,160,167,0.3);
-        }
-
-        /* ===== CLOSING SECTION ===== */
-        .closing-card {
-            background: linear-gradient(180deg, var(--white) 0%, #fdf5f0 100%);
-            border: 1px solid rgba(196, 163, 90, 0.2);
-        }
-
-        .closing-text {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1rem;
-            color: var(--text-dark);
-            font-style: italic;
-            max-width: 450px;
-            margin: 0 auto;
-            line-height: 1.7;
-        }
-
-        .closing-text-ar {
-            font-family: 'Amiri', serif;
-            font-size: 0.95rem;
-            color: var(--text-medium);
-            direction: rtl;
-            margin-top: 0.5rem;
-        }
-
-        .closing-signature {
-            font-family: 'Great Vibes', cursive;
-            font-size: 2rem;
-            color: var(--rose-dark);
-            margin-top: 1rem;
-        }
-
-        /* ===== TOP FLORAL ORNAMENT ===== */
-        .floral-ornament-top {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 0.4rem;
-            margin-bottom: 1rem;
-        }
-
-        .floral-ornament-top span {
-            font-size: 1.1rem;
-            opacity: 0.5;
-        }
-
-        .floral-ornament-top .line {
-            flex: 1;
-            max-width: 60px;
-            height: 1px;
-            background: linear-gradient(to right, transparent, var(--rose), transparent);
-        }
-
-        /* ===== RESPONSIVE ===== */
+        .countdown-item:hover { transform: translateY(-4px); }
+        .countdown-number { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; font-weight: 500; color: var(--rose-dark); line-height: 1; margin-bottom: 0.3rem; }
+        .countdown-label { font-family: 'Raleway', sans-serif; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.15rem; color: var(--text-light); font-weight: 400; }
+        .countdown-label-ar { font-family: 'Amiri', serif; font-size: 0.8rem; color: var(--text-medium); display: block; margin-top: 0.15rem; direction: rtl; }
+        .detail-row { display: flex; align-items: center; justify-content: center; gap: 1rem; margin: 1.2rem 0; flex-wrap: wrap; }
+        .detail-icon { font-size: 2rem; color: var(--rose); flex-shrink: 0; }
+        .detail-content { text-align: start; min-width: 200px; }
+        .detail-label { font-family: 'Raleway', sans-serif; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.2rem; color: var(--text-light); font-weight: 400; margin-bottom: 0.2rem; }
+        .detail-value { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--text-dark); font-weight: 500; }
+        .detail-value-ar { font-family: 'Amiri', serif; font-size: 1.2rem; color: var(--text-dark); font-weight: 400; direction: rtl; }
+        .detail-value.placeholder { color: var(--text-light); font-style: italic; font-size: 1.1rem; }
+        .closing-card { background: linear-gradient(180deg, var(--white) 0%, #fdf3ea 100%); border: 1px solid rgba(196, 154, 85, 0.2); }
+        .closing-text { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--text-dark); font-style: italic; max-width: 450px; margin: 0 auto; line-height: 2; }
+        .closing-text-ar { font-family: 'Amiri', serif; font-size: 1.2rem; color: var(--text-medium); direction: rtl; margin-top: 1rem; }
+        .closing-signature { font-family: 'Great Vibes', cursive; font-size: 2.5rem; color: var(--rose-dark); margin-top: 1.5rem; }
+        .floral-ornament-top { display: flex; justify-content: center; align-items: center; gap: 0.5rem; margin-bottom: 2rem; }
+        .floral-ornament-top span { font-size: 1.5rem; opacity: 0.5; }
+        .floral-ornament-top .line { flex: 1; max-width: 60px; height: 1px; background: linear-gradient(to right, transparent, var(--rose), transparent); }
+        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
         @media (max-width: 600px) {
-            .main-wrapper {
-                padding: 1rem 0.75rem 3rem;
-            }
-
-            .section-card {
-                padding: 2.5rem 1.2rem;
-                border-radius: 1.5rem;
-                margin-bottom: 1.25rem;
-            }
-
-            .hero-card {
-                padding: 3rem 1.2rem;
-            }
-
-            .hero-names {
-                font-size: 3rem;
-            }
-
-            .hero-names .ampersand {
-                font-size: 1.8rem;
-                margin: 0 0.3rem;
-            }
-
-            .hero-names-ar {
-                font-size: 2.2rem;
-            }
-
-            .verse-arabic {
-                font-size: 1.3rem;
-                line-height: 2.2;
-            }
-
-            .countdown-grid {
-                gap: 0.6rem;
-            }
-
-            .countdown-item {
-                min-width: 65px;
-                padding: 1rem 0.6rem;
-                border-radius: 0.9rem;
-            }
-
-            .countdown-number {
-                font-size: 2rem;
-            }
-
-            .hero-top-ornament {
-                font-size: 1.8rem;
-                letter-spacing: 0.3rem;
-            }
-
-            .section-card::before,
-            .section-card::after {
-                font-size: 3rem;
-            }
+            .main-wrapper { padding: 1rem 0.75rem 3rem; }
+            .section-card { padding: 2.5rem 1.2rem; border-radius: 1.5rem; margin-bottom: 1.25rem; }
+            .hero-card { padding: 3rem 1.2rem; }
+            .hero-names { font-size: 3rem; }
+            .hero-names .ampersand { font-size: 1.8rem; margin: 0 0.3rem; }
+            .hero-names-ar { font-size: 2.2rem; }
+            .verse-arabic { font-size: 1.3rem; line-height: 2.2; }
+            .countdown-grid { gap: 0.6rem; }
+            .countdown-item { min-width: 65px; padding: 1rem 0.6rem; border-radius: 0.9rem; }
+            .countdown-number { font-size: 2rem; }
         }
-
-        /* ===== PRINT STYLES ===== */
         @media print {
-            .petals-container,
-            .floral-bg,
-            .countdown-card,
-            .audio-hint {
-                display: none !important;
-            }
-
-            body {
-                background: white;
-                color: #000;
-                font-size: 12pt;
-            }
-
-            .section-card {
-                box-shadow: none;
-                border: 1px solid #ddd;
-                break-inside: avoid;
-                page-break-inside: avoid;
-                margin-bottom: 1rem;
-                padding: 2rem 1.5rem;
-                background: white;
-            }
-
-            .section-card:hover {
-                transform: none;
-                box-shadow: none;
-            }
-
-            .hero-names {
-                -webkit-text-fill-color: #000;
-                color: #000;
-            }
-
-            .countdown-number {
-                color: #000;
-            }
-
-            .fade-in {
-                opacity: 1;
-                transform: none;
-            }
-
-            @page {
-                margin: 1cm;
-            }
-        }
-
-        @media (max-width: 380px) {
-            .countdown-grid {
-                gap: 0.4rem;
-            }
-
-            .countdown-item {
-                min-width: 55px;
-                padding: 0.8rem 0.4rem;
-            }
-
-            .countdown-number {
-                font-size: 1.6rem;
-            }
-
-            .hero-names {
-                font-size: 2.4rem;
-            }
-        }
-
-        /* ===== FADE IN ANIMATION ===== */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* ===== AUDIO PLAYER (OPTIONAL) ===== */
-        .audio-hint {
-            font-family: 'Raleway', sans-serif;
-            font-size: 0.65rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15rem;
-            color: var(--text-light);
-            margin-top: 1.5rem;
-            cursor: pointer;
-            transition: color 0.3s ease;
-            background: none;
-            border: none;
-            font-family: 'Raleway', sans-serif;
-        }
-
-        .audio-hint:hover {
-            color: var(--rose-dark);
+            .petals-container, .floral-bg, .countdown-card { display: none !important; }
+            body { background: white; color: #000; font-size: 12pt; }
+            .section-card { box-shadow: none; border: 1px solid #ddd; break-inside: avoid; margin-bottom: 1rem; padding: 2rem 1.5rem; background: white; }
+            .section-card:hover { transform: none; box-shadow: none; }
+            .hero-names { -webkit-text-fill-color: #000; color: #000; }
+            .fade-in { opacity: 1; transform: none; }
+            @page { margin: 1cm; }
         }
     </style>
 </head>
 <body>
-
-    <!-- Floating petals background -->
     <div class="petals-container" aria-hidden="true">
-        <div class="petal"></div><div class="petal"></div><div class="petal"></div>
-        <div class="petal"></div><div class="petal"></div><div class="petal"></div>
-        <div class="petal"></div><div class="petal"></div><div class="petal"></div>
-        <div class="petal"></div>
+        <div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div>
+        <div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div>
     </div>
-
-    <!-- Soft floral background glow -->
     <div class="floral-bg" aria-hidden="true"></div>
-
-    <!-- ===== MAIN CONTENT ===== -->
     <main class="main-wrapper">
-
-        <!-- ===== HERO ===== -->
         <section class="section-card hero-card fade-in">
-            <div class="hero-top-ornament" aria-hidden="true">✿ &nbsp;✦&nbsp; ✿</div>
-            
+            <div class="hero-top-ornament" aria-hidden="true">🌺 &nbsp;✦&nbsp; 🌺</div>
             <p class="hero-label-en">You are invited to the Khutouba of</p>
             <p class="hero-label-ar" lang="ar">يسرنا دعوتكم لحضور خطوبة</p>
-            
             <div class="floral-divider small" aria-hidden="true">✦</div>
-            
-            <h1 class="hero-names">
-                Ghazi <span class="ampersand">&amp;</span> Bayan
-            </h1>
+            <h1 class="hero-names">Ghazi <span class="ampersand">&amp;</span> Bayan</h1>
             <h2 class="hero-names-ar" lang="ar">غازي وبيان</h2>
-            
             <div class="floral-divider small" aria-hidden="true">✦</div>
-            
             <p class="hero-subtitle">Together with their families</p>
             <p class="hero-date-preview">July 31, 2026</p>
         </section>
-
-        <!-- ===== QURANIC VERSE ===== -->
         <section class="section-card verse-card fade-in">
-            <div class="floral-ornament-top" aria-hidden="true">
-                <span>🌸</span><div class="line"></div><span>🌿</span><div class="line"></div><span>🌸</span>
-            </div>
-
+            <div class="floral-ornament-top" aria-hidden="true"><span>🌺</span><div class="line"></div><span>🌿</span><div class="line"></div><span>🌺</span></div>
             <div class="bismillah" lang="ar">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</div>
-
-            <p class="verse-arabic" lang="ar">
-                وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَتَفَكَّرُونَ
-            </p>
-
-            <div class="floral-divider small" aria-hidden="true">🌹</div>
-
-            <p class="verse-translation">
-                "And among His signs is that He created for you spouses from among yourselves,
-                that you may find tranquility in them; and He placed between you affection and mercy.
-                Indeed in that are signs for a people who give thought."
-            </p>
-
+            <p class="verse-arabic" lang="ar">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَتَفَكَّرُونَ</p>
+            <div class="floral-divider small" aria-hidden="true">🌺</div>
+            <p class="verse-translation">"And among His signs is that He created for you spouses from among yourselves, that you may find tranquility in them; and He placed between you affection and mercy. Indeed in that are signs for a people who give thought."</p>
             <p class="verse-reference" lang="en">— Surah Ar-Rum, 30:21</p>
         </section>
-
-        <!-- ===== COUNTDOWN ===== -->
         <section class="section-card countdown-card fade-in">
-            <div class="floral-ornament-top" aria-hidden="true">
-                <span>🌷</span><div class="line"></div><span>✨</span><div class="line"></div><span>🌷</span>
-            </div>
-
+            <div class="floral-ornament-top" aria-hidden="true"><span>🌷</span><div class="line"></div><span>✨</span><div class="line"></div><span>🌷</span></div>
             <p class="countdown-title">Counting down to our special day</p>
-
             <div class="countdown-grid" id="countdown">
-                <div class="countdown-item">
-                    <div class="countdown-number" id="countdown-seconds">—</div>
-                    <div class="countdown-label">Seconds</div>
-                    <span class="countdown-label-ar">ثانية</span>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-number" id="countdown-minutes">—</div>
-                    <div class="countdown-label">Minutes</div>
-                    <span class="countdown-label-ar">دقيقة</span>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-number" id="countdown-hours">—</div>
-                    <div class="countdown-label">Hours</div>
-                    <span class="countdown-label-ar">ساعة</span>
-                </div>
-                <div class="countdown-item">
-                    <div class="countdown-number" id="countdown-days">—</div>
-                    <div class="countdown-label">Days</div>
-                    <span class="countdown-label-ar">يوم</span>
-                </div>
+                <div class="countdown-item"><div class="countdown-number" id="countdown-seconds">—</div><div class="countdown-label">Seconds</div><span class="countdown-label-ar">ثانية</span></div>
+                <div class="countdown-item"><div class="countdown-number" id="countdown-minutes">—</div><div class="countdown-label">Minutes</div><span class="countdown-label-ar">دقيقة</span></div>
+                <div class="countdown-item"><div class="countdown-number" id="countdown-hours">—</div><div class="countdown-label">Hours</div><span class="countdown-label-ar">ساعة</span></div>
+                <div class="countdown-item"><div class="countdown-number" id="countdown-days">—</div><div class="countdown-label">Days</div><span class="countdown-label-ar">يوم</span></div>
             </div>
         </section>
-
-        <!-- ===== EVENT DETAILS ===== -->
         <section class="section-card details-card fade-in">
-            <div class="floral-ornament-top" aria-hidden="true">
-                <span>💐</span><div class="line"></div><span>📍</span><div class="line"></div><span>💐</span>
-            </div>
-
+            <div class="floral-ornament-top" aria-hidden="true"><span>💐</span><div class="line"></div><span>📍</span><div class="line"></div><span>💐</span></div>
             <h3 style="font-family:'Raleway',sans-serif;font-size:0.8rem;text-transform:uppercase;letter-spacing:0.3rem;color:var(--text-light);margin-bottom:2rem;font-weight:300;">Event Details</h3>
-
-            <!-- Date -->
-            <div class="detail-row">
-                <div class="detail-icon">📅</div>
-                <div class="detail-content">
-                    <div class="detail-label">Date</div>
-                    <div class="detail-value">Friday, July 31, 2026</div>
-                    <div class="detail-value-ar" lang="ar">الجمعة ٣١ يوليو ٢٠٢٦</div>
-                </div>
-            </div>
-
+            <div class="detail-row"><div class="detail-icon">📅</div><div class="detail-content"><div class="detail-label">Date</div><div class="detail-value">Friday, July 31, 2026</div><div class="detail-value-ar" lang="ar">الجمعة ٣١ يوليو ٢٠٢٦</div></div></div>
             <div class="floral-divider small" aria-hidden="true">✿</div>
-
-            <!-- Time -->
-            <div class="detail-row">
-                <div class="detail-icon">🕖</div>
-                <div class="detail-content">
-                    <div class="detail-label">Time</div>
-                    <div class="detail-value">7:00 PM onwards</div>
-                    <div class="detail-value-ar" lang="ar">من الساعة ٧:٠٠ مساءً</div>
-                </div>
-            </div>
-
+            <div class="detail-row"><div class="detail-icon">🕖</div><div class="detail-content"><div class="detail-label">Time</div><div class="detail-value">7:00 PM onwards</div><div class="detail-value-ar" lang="ar">من الساعة ٧:٠٠ مساءً</div></div></div>
             <div class="floral-divider small" aria-hidden="true">✿</div>
-
-            <!-- Venue -->
-            <div class="detail-row">
-                <div class="detail-icon">📍</div>
-                <div class="detail-content">
-                    <div class="detail-label">Venue</div>
-                    <div class="detail-value placeholder">Venue to be announced</div>
-                    <div class="detail-value-ar placeholder" lang="ar" style="font-style:italic;color:var(--text-light);">سيتم الإعلان عن المكان قريباً</div>
-                </div>
-            </div>
+            <div class="detail-row"><div class="detail-icon">📍</div><div class="detail-content"><div class="detail-label">Venue</div><div class="detail-value placeholder">Venue to be announced</div><div class="detail-value-ar placeholder" lang="ar" style="font-style:italic;color:var(--text-light);">سيتم الإعلان عن المكان قريباً</div></div></div>
         </section>
-
-        <!-- ===== CLOSING ===== -->
         <section class="section-card closing-card fade-in">
-            <div class="floral-ornament-top" aria-hidden="true">
-                <span>💕</span><div class="line"></div><span>🤍</span><div class="line"></div><span>💕</span>
-            </div>
-
-            <p class="closing-text">
-                "We look forward to sharing this beautiful moment with you, surrounded by love, laughter, and the warmth of family and friends."
-            </p>
-
-            <p class="closing-text-ar" lang="ar">
-                نتطلع إلى مشاركتكم هذه اللحظة الجميلة، محاطين بالحب والفرح ودفء العائلة والأصدقاء.
-            </p>
-
+            <div class="floral-ornament-top" aria-hidden="true"><span>💕</span><div class="line"></div><span>🤍</span><div class="line"></div><span>💕</span></div>
+            <p class="closing-text">"We look forward to sharing this beautiful moment with you, surrounded by love, laughter, and the warmth of family and friends."</p>
+            <p class="closing-text-ar" lang="ar">نتطلع إلى مشاركتكم هذه اللحظة الجميلة، محاطين بالحب والفرح ودفء العائلة والأصدقاء.</p>
             <div class="floral-divider" aria-hidden="true">💐</div>
-
             <p class="closing-signature">Ghazi &amp; Bayan</p>
-
             <p lang="ar" style="font-family:'Amiri',serif;font-size:1.3rem;color:var(--rose-dark);margin-top:0.3rem;">غازي وبيان</p>
         </section>
-
     </main>
-
     <script>
-        // ===== COUNTDOWN TIMER =====
         function updateCountdown() {
-            // Use local-time-safe date constructor (month is 0-indexed: 6 = July)
             const eventDate = new Date(2026, 6, 31, 19, 0, 0);
             const now = new Date();
             const diff = eventDate - now;
-
-            if (diff <= 0) {
-                ['days','hours','minutes','seconds'].forEach(id => {
-                    document.getElementById('countdown-' + id).textContent = '0';
-                });
-                return;
-            }
-
+            if (diff <= 0) { ['days','hours','minutes','seconds'].forEach(id => { document.getElementById('countdown-' + id).textContent = '0'; }); return; }
             const days = Math.floor(diff / (1000 * 60 * 60 * 24));
             const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
             document.getElementById('countdown-days').textContent = days;
             document.getElementById('countdown-hours').textContent = hours.toString().padStart(2, '0');
             document.getElementById('countdown-minutes').textContent = minutes.toString().padStart(2, '0');
             document.getElementById('countdown-seconds').textContent = seconds.toString().padStart(2, '0');
         }
-
-        updateCountdown();
-        setInterval(updateCountdown, 1000);
-
-        // ===== SCROLL FADE-IN ANIMATIONS =====
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, {
-            threshold: 0.15,
-            rootMargin: '0px 0px -50px 0px'
-        });
-
+        updateCountdown(); setInterval(updateCountdown, 1000);
+        const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }); }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-        // Trigger visible state immediately for elements already in view on load
-        window.addEventListener('load', () => {
-            document.querySelectorAll('.fade-in').forEach(el => {
-                const rect = el.getBoundingClientRect();
-                if (rect.top < window.innerHeight) {
-                    el.classList.add('visible');
-                }
-            });
-        });
+        window.addEventListener('load', () => { document.querySelectorAll('.fade-in').forEach(el => { if (el.getBoundingClientRect().top < window.innerHeight) el.classList.add('visible'); }); });
     </script>
-
 </body>
 </html>
