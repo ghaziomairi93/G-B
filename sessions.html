@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitation Versions | Ghazi &amp; Bayan — Khutouba</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Great+Vibes&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fdf6f0;
+            --card-bg: #fffaf8;
+            --text: #3d2c2e;
+            --text-light: #6d5a5c;
+            --rose: #d4a0a7;
+            --rose-dark: #b07b84;
+            --gold: #c4a35a;
+            --shadow: 0 4px 30px rgba(61,44,46,.07);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        .container { max-width: 1000px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+        
+        .header {
+            text-align: center;
+            padding: 3rem 2rem 2rem;
+        }
+        .header h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3.5rem;
+            color: var(--rose-dark);
+            font-weight: 400;
+            margin-bottom: 0.3rem;
+        }
+        .header .sub {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.3rem;
+            color: var(--text-light);
+            font-weight: 400;
+        }
+        .header .date {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            color: var(--gold);
+            font-style: italic;
+            margin-top: 0.5rem;
+        }
+
+        .section-title {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.25rem;
+            color: var(--text-light);
+            margin: 2.5rem 0 1.2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(212,160,167,.2);
+        }
+
+        .versions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.2rem;
+        }
+        .version-card {
+            background: var(--card-bg);
+            border-radius: 1.5rem;
+            padding: 1.8rem;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(212,160,167,.15);
+            transition: transform .3s ease, box-shadow .3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            position: relative;
+            overflow: hidden;
+        }
+        .version-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 40px rgba(61,44,46,.12);
+        }
+        .version-card .badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.25rem 0.7rem;
+            border-radius: 2rem;
+            font-size: 0.6rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+        }
+        .badge-live { background: #e8ffe8; color: #2d6e2d; }
+        .badge-preview { background: #fff3e0; color: #8a5d00; }
+        
+        .version-card .color-dot {
+            display: inline-block;
+            width: 16px; height: 16px;
+            border-radius: 50%;
+            margin-right: 0.5rem;
+            vertical-align: middle;
+            border: 1px solid rgba(0,0,0,.1);
+        }
+        .dot-rose { background: #d4a0a7; }
+        .dot-peach { background: #e0a68e; }
+        .dot-lavender { background: #b8a5c9; }
+
+        .version-card h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            color: var(--text);
+            margin-bottom: 0.3rem;
+        }
+        .version-card .style-tag {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15rem;
+            color: var(--rose-dark);
+            margin-bottom: 0.8rem;
+            font-weight: 500;
+        }
+        .version-card .desc {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+        .version-card .meta {
+            font-size: 0.7rem;
+            color: var(--text-light);
+            opacity: 0.7;
+        }
+
+        .links-row {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: 0.8rem;
+        }
+        .btn {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.05rem;
+            text-decoration: none;
+            transition: all .2s;
+        }
+        .btn-primary {
+            background: var(--rose-dark);
+            color: white;
+        }
+        .btn-primary:hover { background: #9a6b74; }
+        .btn-outline {
+            border: 1px solid var(--rose);
+            color: var(--rose-dark);
+        }
+        .btn-outline:hover { background: rgba(212,160,167,.1); }
+
+        .pdf-section {
+            background: var(--card-bg);
+            border-radius: 1.5rem;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(212,160,167,.15);
+            margin-top: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .pdf-icon { font-size: 3rem; }
+        .pdf-info h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            margin-bottom: 0.3rem;
+        }
+        .pdf-info p {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .quick-actions {
+            display: flex;
+            gap: 0.8rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            color: var(--text-light);
+            font-size: 0.8rem;
+            opacity: 0.6;
+        }
+
+        @media (max-width: 600px) {
+            .header h1 { font-size: 2.5rem; }
+            .versions-grid { grid-template-columns: 1fr; }
+            .pdf-section { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Ghazi &amp; Bayan</h1>
+            <p class="sub">Khutouba Invitation · Version Dashboard</p>
+            <p class="date">July 31, 2026</p>
+        </div>
+
+        <!-- WEB VERSIONS -->
+        <div class="section-title">🎨 Web Invitation Versions</div>
+        <div class="versions-grid">
+            <!-- V1 -->
+            <a href="index.html" class="version-card" target="_blank">
+                <span class="badge badge-live">✦ Live</span>
+                <h3><span class="color-dot dot-rose"></span> Romantic Floral</h3>
+                <p class="style-tag">Compact · Single-Page</p>
+                <p class="desc">Original romantic floral theme — soft rose & cream palette, everything visible at once on one screen. Clean, elegant, bilingual.</p>
+                <div class="meta">main branch · Deployed to Netlify</div>
+                <div class="links-row" onclick="event.stopPropagation()">
+                    <a href="index.html" target="_blank" class="btn btn-primary">View Live</a>
+                    <a href="https://github.com/ghaziomairi93/G-B/tree/main" target="_blank" class="btn btn-outline">GitHub</a>
+                </div>
+            </a>
+
+            <!-- V2 -->
+            <a href="https://version-2-peach--ghazi-bayan.netlify.app" class="version-card" target="_blank">
+                <span class="badge badge-preview">Preview</span>
+                <h3><span class="color-dot dot-peach"></span> Romantic Peach</h3>
+                <p class="style-tag">Scrollable · Warm Tones</p>
+                <p class="desc">Same floral elegance with warmer peach & coral accents. Scrollable layout with full sections. Feels like a sunset garden.</p>
+                <div class="meta">version-2-peach branch</div>
+                <div class="links-row" onclick="event.stopPropagation()">
+                    <a href="https://github.com/ghaziomairi93/G-B/tree/version-2-peach" target="_blank" class="btn btn-outline">GitHub</a>
+                </div>
+            </a>
+
+            <!-- V3 -->
+            <a href="https://version-3-lavender--ghazi-bayan.netlify.app" class="version-card" target="_blank">
+                <span class="badge badge-preview">Preview</span>
+                <h3><span class="color-dot dot-lavender"></span> Romantic Lavender</h3>
+                <p class="style-tag">Scrollable · Cool Tones</p>
+                <p class="desc">Floral design with cool lavender & purple undertones. Serene, calm, and regal — like an evening garden under moonlight.</p>
+                <div class="meta">version-3-lavender branch</div>
+                <div class="links-row" onclick="event.stopPropagation()">
+                    <a href="https://github.com/ghaziomairi93/G-B/tree/version-3-lavender" target="_blank" class="btn btn-outline">GitHub</a>
+                </div>
+            </a>
+        </div>
+
+        <!-- PDF VERSION -->
+        <div class="section-title">🖨 Printable PDF Version</div>
+        <div class="pdf-section">
+            <div class="pdf-icon">📄</div>
+            <div class="pdf-info">
+                <h3>Printable Invitation (A4)</h3>
+                <p>A print-optimized A4 version designed to be saved as PDF or printed on paper. Includes the Quranic verse and all event details. Perfect for sharing with family who prefer a physical invitation.</p>
+            </div>
+            <div class="quick-actions">
+                <a href="invite-pdf.html" target="_blank" class="btn btn-primary">Open &amp; Print</a>
+            </div>
+        </div>
+
+        <!-- HOW TO USE -->
+        <div class="section-title">📋 How to Switch the Live Version</div>
+        <div class="pdf-section" style="display:block;">
+            <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;margin-bottom:0.8rem;">Via GitHub (recommended)</h3>
+            <p style="font-size:0.85rem;color:var(--text-light);margin-bottom:0.5rem;">
+                Merge the branch you want live into <code style="background:#f9f3f0;padding:0.15rem 0.4rem;border-radius:0.3rem;font-size:0.8rem;">main</code>:
+            </p>
+            <div style="background:#2d1f21;color:#f0d9dd;padding:1rem 1.2rem;border-radius:0.8rem;font-family:monospace;font-size:0.8rem;margin:0.8rem 0;">
+                git checkout main &amp;&amp; git merge version-2-peach &amp;&amp; git push
+            </div>
+            <p style="font-size:0.85rem;color:var(--text-light);">
+                Netlify auto-detects the push and redeploys in ~30 seconds.
+            </p>
+
+            <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;margin:1.2rem 0 0.8rem;">Via Netlify Dashboard</h3>
+            <p style="font-size:0.85rem;color:var(--text-light);">
+                Go to Netlify → Deploys → find the branch deploy you want → click <strong>"Publish deploy"</strong>. Instant switch, no code needed.
+            </p>
+        </div>
+
+        <div class="footer">
+            Ghazi &amp; Bayan · Khutouba · July 31, 2026
+        </div>
+    </div>
+</body>
+</html>
