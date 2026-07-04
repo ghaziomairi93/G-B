@@ -3,101 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>خطوبة غازي وبيان | Ghazi &amp; Bayan - Khutouba</title>
+    <title>Engagement of Ghazi &amp; Bayan | خطوبة غازي وبيان</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Great+Vibes&family=Raleway:ital,wght@0,200;0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         :root {
-            --cream: #f7f4fb;
-            --bg: #f3eff9;
-            --rose: #b8a5c9;
-            --rose-dark: #9a82b0;
-            --gold: #c4a35a;
-            --gold-light: #d4b96a;
-            --text-dark: #2d2538;
-            --text-medium: #5a5068;
-            --text-light: #776b82;
-            --white: #faf8fc;
-            --shadow-soft: 0 4px 30px rgba(45, 37, 56, 0.07);
-            --shadow-medium: 0 8px 50px rgba(45, 37, 56, 0.11);
+            --bg: #f6f3fc; --card-bg: #faf8fc;
+            --purple: #7c5cbf; --purple-light: #a080d4; --purple-dark: #5e3fa8;
+            --gold: #c9a84b; --gold-light: #dfc06a;
+            --text-dark: #2d1a3d; --text-medium: #5a3d6e; --text-light: #7a5d8e;
+            --shadow-soft: 0 4px 30px rgba(124,92,191,0.10);
+            --shadow-medium: 0 8px 50px rgba(124,92,191,0.16);
         }
         html { scroll-behavior: smooth; scroll-padding-top: 2rem; }
         body {
-            font-family: 'Cormorant Garamond', 'Georgia', 'Times New Roman', 'Amiri', serif;
-            background: linear-gradient(180deg, #f3eff9 0%, #ede7f5 50%, #f3eff9 100%);
+            font-family: 'Cormorant Garamond', 'Georgia', serif;
+            background: linear-gradient(180deg, #f6f3fc 0%, #ede5f7 50%, #f6f3fc 100%);
             color: var(--text-dark); line-height: 1.8; overflow-x: hidden; -webkit-font-smoothing: antialiased;
         }
-        .floral-bg {
-            position: fixed; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; z-index: 0; opacity: 0.05;
-            background-image: radial-gradient(ellipse at 20% 15%, #b8a5c9 0%, transparent 50%), radial-gradient(ellipse at 80% 25%, #b8a5c9 0%, transparent 50%), radial-gradient(ellipse at 50% 60%, #c4a35a 0%, transparent 40%), radial-gradient(ellipse at 15% 75%, #b8a5c9 0%, transparent 45%), radial-gradient(ellipse at 85% 80%, #b8a5c9 0%, transparent 45%);
-        }
+        .corner-flower { position: fixed; pointer-events: none; z-index: 0; font-size: 5rem; opacity: .13; line-height: 1; animation: sway 8s ease-in-out infinite; }
+        .corner-tl { top: -1rem; left: -.5rem; animation-delay: 0s; }
+        .corner-tr { top: -1rem; right: -.5rem; animation-delay: 2s; transform: scaleX(-1); }
+        .corner-bl { bottom: -1rem; left: -.5rem; animation-delay: 4s; }
+        .corner-br { bottom: -1rem; right: -.5rem; animation-delay: 6s; transform: scaleX(-1); }
+        @keyframes sway { 0%,100%{transform:rotate(0deg)} 25%{transform:rotate(2deg)} 75%{transform:rotate(-2deg)} }
+        .corner-tr, .corner-br { animation-name: sway-mirror; }
+        @keyframes sway-mirror { 0%,100%{transform:scaleX(-1) rotate(0deg)} 25%{transform:scaleX(-1) rotate(2deg)} 75%{transform:scaleX(-1) rotate(-2deg)} }
         .petals-container { position: fixed; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; z-index: 1; overflow: hidden; }
         .petal { position: absolute; top: -60px; opacity: 0; animation: fall linear infinite; pointer-events: none; }
-        .petal::before { content: '🪻'; font-size: 1.5rem; display: block; filter: blur(0.5px); }
-        .petal:nth-child(1){left:5%;animation-duration:18s;animation-delay:0s}.petal:nth-child(2){left:15%;animation-duration:22s;animation-delay:3s}.petal:nth-child(3){left:25%;animation-duration:20s;animation-delay:6s}.petal:nth-child(4){left:35%;animation-duration:25s;animation-delay:1s}.petal:nth-child(5){left:45%;animation-duration:19s;animation-delay:8s}.petal:nth-child(6){left:55%;animation-duration:23s;animation-delay:4s}.petal:nth-child(7){left:65%;animation-duration:21s;animation-delay:10s}.petal:nth-child(8){left:75%;animation-duration:17s;animation-delay:2s}.petal:nth-child(9){left:85%;animation-duration:24s;animation-delay:7s}.petal:nth-child(10){left:92%;animation-duration:20s;animation-delay:5s}
-        @keyframes fall {0%{transform:translateY(-60px) rotate(0deg) scale(.8);opacity:0}5%{opacity:.7}50%{opacity:.5}90%{opacity:.3}100%{transform:translateY(105vh) rotate(720deg) scale(.3);opacity:0}}
+        .petal::before { content: '🪻'; font-size: 1.3rem; display: block; filter: blur(.3px); }
+        .petal:nth-child(odd)::before { content: '💜'; }
+        .petal:nth-child(3n)::before { content: '🌸'; }
+        .petal:nth-child(1){left:5%;animation-duration:16s;animation-delay:0s}.petal:nth-child(2){left:14%;animation-duration:20s;animation-delay:3s}.petal:nth-child(3){left:23%;animation-duration:18s;animation-delay:6s}.petal:nth-child(4){left:32%;animation-duration:23s;animation-delay:1s}.petal:nth-child(5){left:41%;animation-duration:17s;animation-delay:8s}.petal:nth-child(6){left:50%;animation-duration:21s;animation-delay:4s}.petal:nth-child(7){left:59%;animation-duration:19s;animation-delay:10s}.petal:nth-child(8){left:68%;animation-duration:22s;animation-delay:2s}.petal:nth-child(9){left:77%;animation-duration:15s;animation-delay:7s}.petal:nth-child(10){left:86%;animation-duration:20s;animation-delay:5s}.petal:nth-child(11){left:93%;animation-duration:18s;animation-delay:9s}.petal:nth-child(12){left:10%;animation-duration:24s;animation-delay:11s}
+        @keyframes fall { 0%{transform:translateY(-60px) rotate(0deg) scale(.7);opacity:0} 5%{opacity:.6} 50%{opacity:.4} 90%{opacity:.2} 100%{transform:translateY(105vh) rotate(720deg) scale(.25);opacity:0} }
         .main-wrapper { position: relative; z-index: 2; max-width: 800px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
-        .section-card { background: var(--white); border-radius: 2rem; padding: 3.5rem 2.5rem; margin-bottom: 2rem; box-shadow: var(--shadow-soft); position: relative; overflow: hidden; text-align: center; border: 1px solid rgba(184, 165, 201, 0.18); transition: transform .4s ease, box-shadow .4s ease; }
+        .section-card { background: var(--card-bg); border-radius: 2rem; padding: 3.5rem 2.5rem; margin-bottom: 2rem; box-shadow: var(--shadow-soft); position: relative; text-align: center; border: 1px solid rgba(124,92,191,.18); transition: transform .4s ease, box-shadow .4s ease; }
         .section-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-medium); }
-        .section-card::before, .section-card::after { position: absolute; pointer-events: none; opacity: .1; font-size: 5rem; line-height: 1; }
-        .section-card::before { content: '🌿'; top: -.5rem; left: .5rem; transform: rotate(-15deg); }
-        .section-card::after { content: '🌿'; bottom: -.5rem; right: .5rem; transform: rotate(165deg); }
-        .floral-divider { display: flex; align-items: center; justify-content: center; gap: 1rem; margin: 2rem 0; color: var(--rose); font-size: 1.2rem; opacity: .7; }
-        .floral-divider::before, .floral-divider::after { content: ''; flex: 1; max-width: 80px; height: 1px; background: linear-gradient(to right, transparent, var(--rose), transparent); }
+        .section-card .card-corner { position: absolute; pointer-events: none; font-size: 2.8rem; opacity: .12; line-height: 1; z-index: 0; }
+        .section-card .corner-a { top: -.8rem; left: -.3rem; transform: rotate(-10deg); }
+        .section-card .corner-b { top: -.8rem; right: -.3rem; transform: rotate(10deg) scaleX(-1); }
+        .section-card .corner-c { bottom: -.8rem; left: -.3rem; transform: rotate(10deg); }
+        .section-card .corner-d { bottom: -.8rem; right: -.3rem; transform: rotate(-10deg) scaleX(-1); }
+        .floral-divider { display: flex; align-items: center; justify-content: center; gap: 1rem; margin: 2rem 0; color: var(--purple); font-size: 1.2rem; opacity: .7; }
+        .floral-divider::before, .floral-divider::after { content: ''; flex: 1; max-width: 80px; height: 1px; background: linear-gradient(to right, transparent, var(--purple-light), transparent); }
         .floral-divider.small { margin: 1rem 0; font-size: .9rem; }
         .floral-divider.small::before, .floral-divider.small::after { max-width: 40px; }
-        .hero-card { padding: 4rem 2.5rem; background: linear-gradient(180deg, var(--white) 0%, #f5f0fa 100%); border: 1px solid rgba(184, 165, 201, .25); }
-        .hero-card::before, .hero-card::after { opacity: .13; font-size: 6rem; }
-        .hero-top-ornament { font-size: 2.5rem; letter-spacing: .5rem; margin-bottom: 1.5rem; color: var(--rose); opacity: .6; }
+        .hero-card { padding: 4rem 2.5rem; background: linear-gradient(180deg, var(--card-bg) 0%, #f3eef9 100%); border: 1px solid rgba(124,92,191,.28); }
+        .hero-top-ornament { font-size: 2.5rem; letter-spacing: .5rem; margin-bottom: 1.5rem; color: var(--purple); opacity: .6; }
         .hero-label-en { font-family: 'Raleway', sans-serif; font-size: .8rem; text-transform: uppercase; letter-spacing: .35rem; color: var(--text-light); margin-bottom: .75rem; font-weight: 300; }
-        .hero-label-ar { font-family: 'Amiri', serif; font-size: 1.1rem; color: var(--rose-dark); margin-bottom: .5rem; font-weight: 400; }
-        .hero-names { font-family: 'Great Vibes', cursive; font-size: 4.5rem; font-weight: 400; line-height: 1.2; margin: .5rem 0; background: linear-gradient(135deg, var(--text-dark) 30%, var(--rose-dark) 70%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero-label-ar { font-family: 'Amiri', serif; font-size: 1.1rem; color: var(--purple-dark); margin-bottom: .5rem; font-weight: 400; }
+        .hero-names { font-family: 'Great Vibes', cursive; font-size: 4.5rem; font-weight: 400; line-height: 1.2; margin: .5rem 0; background: linear-gradient(135deg, var(--text-dark) 30%, var(--purple-dark) 70%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
         .hero-names .ampersand { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; -webkit-text-fill-color: var(--gold); vertical-align: middle; margin: 0 .5rem; font-style: italic; }
-        .hero-names-ar { font-family: 'Amiri', 'Traditional Arabic', serif; font-size: 3rem; color: var(--text-dark); margin: .5rem 0 .2rem; font-weight: 700; line-height: 1.3; }
-        .hero-subtitle { font-family: 'Raleway', sans-serif; font-size: .85rem; text-transform: uppercase; letter-spacing: .3rem; color: var(--rose-dark); margin-top: 1rem; font-weight: 300; }
+        .hero-names-ar { font-family: 'Amiri', serif; font-size: 3rem; color: var(--text-dark); margin: .5rem 0 .2rem; font-weight: 700; line-height: 1.3; }
+        .hero-subtitle { font-family: 'Raleway', sans-serif; font-size: .85rem; text-transform: uppercase; letter-spacing: .3rem; color: var(--purple-dark); margin-top: 1rem; font-weight: 300; }
         .hero-date-preview { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--gold); margin-top: 1.5rem; font-style: italic; font-weight: 400; }
-        .verse-card { background: linear-gradient(180deg, #faf8fc 0%, #f3eff9 100%); border: 1px solid rgba(196, 163, 90, .2); }
+        .verse-card { background: linear-gradient(180deg, #faf8fc 0%, #f4eef9 100%); border: 1px solid rgba(201,169,75,.22); }
         .verse-arabic { font-family: 'Amiri', serif; font-size: 1.75rem; line-height: 2.4; color: var(--text-dark); font-weight: 400; direction: rtl; unicode-bidi: embed; max-width: 600px; margin: 0 auto; }
-        .verse-translation { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; line-height: 1.8; color: var(--text-medium); font-style: italic; max-width: 500px; margin: 1.5rem auto 0; direction: ltr; }
+        .verse-translation { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; line-height: 1.8; color: var(--text-medium); font-style: italic; max-width: 500px; margin: 1.5rem auto 0; direction: ltr; text-align: center; }
         .verse-reference { font-family: 'Raleway', sans-serif; font-size: .75rem; text-transform: uppercase; letter-spacing: .2rem; color: var(--text-light); margin-top: 1rem; }
-        .bismillah { font-family: 'Amiri', serif; font-size: 2.5rem; color: var(--gold); margin-bottom: 1.5rem; opacity: .8; }
-        .countdown-card { background: linear-gradient(180deg, #f7f3fb 0%, var(--white) 100%); border: 1px solid rgba(184, 165, 201, .2); }
+        .bismillah { font-family: 'Amiri', serif; font-size: 2.5rem; color: var(--gold); margin-bottom: 1.5rem; opacity: .85; }
+        .countdown-card { background: linear-gradient(180deg, #f7f3fb 0%, var(--card-bg) 100%); border: 1px solid rgba(124,92,191,.22); }
         .countdown-title { font-family: 'Raleway', sans-serif; font-size: .8rem; text-transform: uppercase; letter-spacing: .3rem; color: var(--text-light); margin-bottom: 2rem; font-weight: 300; }
         .countdown-grid { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
-        .countdown-item { background: var(--white); border-radius: 1.2rem; padding: 1.5rem 1.2rem; min-width: 90px; box-shadow: 0 4px 20px rgba(45,37,56,.05); border: 1px solid rgba(184,165,201,.2); transition: transform .3s ease; }
+        .countdown-item { background: var(--card-bg); border-radius: 1.2rem; padding: 1.5rem 1.2rem; min-width: 90px; box-shadow: 0 4px 20px rgba(124,92,191,.07); border: 1px solid rgba(124,92,191,.22); transition: transform .3s ease; }
         .countdown-item:hover { transform: translateY(-4px); }
-        .countdown-number { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; font-weight: 500; color: var(--rose-dark); line-height: 1; margin-bottom: .3rem; }
+        .countdown-number { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; font-weight: 500; color: var(--purple-dark); line-height: 1; margin-bottom: .3rem; }
         .countdown-label { font-family: 'Raleway', sans-serif; font-size: .65rem; text-transform: uppercase; letter-spacing: .15rem; color: var(--text-light); font-weight: 400; }
         .countdown-label-ar { font-family: 'Amiri', serif; font-size: .8rem; color: var(--text-medium); display: block; margin-top: .15rem; direction: rtl; }
         .detail-row { display: flex; align-items: center; justify-content: center; gap: 1rem; margin: 1.2rem 0; flex-wrap: wrap; }
-        .detail-icon { font-size: 2rem; color: var(--rose); flex-shrink: 0; }
-        .detail-content { text-align: start; min-width: 200px; }
+        .detail-icon { font-size: 2rem; color: var(--purple); flex-shrink: 0; }
+        .detail-content { text-align: center; min-width: 200px; }
         .detail-label { font-family: 'Raleway', sans-serif; font-size: .7rem; text-transform: uppercase; letter-spacing: .2rem; color: var(--text-light); font-weight: 400; margin-bottom: .2rem; }
         .detail-value { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--text-dark); font-weight: 500; }
         .detail-value-ar { font-family: 'Amiri', serif; font-size: 1.2rem; color: var(--text-dark); font-weight: 400; direction: rtl; }
-        .detail-value.placeholder { color: var(--text-light); font-style: italic; font-size: 1.1rem; }
-        .closing-card { background: linear-gradient(180deg, var(--white) 0%, #f3eff9 100%); border: 1px solid rgba(196,163,90,.2); }
+        .closing-card { background: linear-gradient(180deg, var(--card-bg) 0%, #f4eef9 100%); border: 1px solid rgba(201,169,75,.22); }
         .closing-text { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--text-dark); font-style: italic; max-width: 450px; margin: 0 auto; line-height: 2; }
         .closing-text-ar { font-family: 'Amiri', serif; font-size: 1.2rem; color: var(--text-medium); direction: rtl; margin-top: 1rem; }
-        .closing-signature { font-family: 'Great Vibes', cursive; font-size: 2.5rem; color: var(--rose-dark); margin-top: 1.5rem; }
-        .floral-ornament-top { display: flex; justify-content: center; align-items: center; gap: .5rem; margin-bottom: 2rem; }
+        .closing-signature { font-family: 'Great Vibes', cursive; font-size: 2.5rem; color: var(--purple-dark); margin-top: 1.5rem; }
+        .floral-ornament-top { display: flex; justify-content: center; align-items: center; gap: .5rem; margin-bottom: 2rem; position: relative; z-index: 1; }
         .floral-ornament-top span { font-size: 1.5rem; opacity: .5; }
-        .floral-ornament-top .line { flex: 1; max-width: 60px; height: 1px; background: linear-gradient(to right, transparent, var(--rose), transparent); }
+        .floral-ornament-top .line { flex: 1; max-width: 60px; height: 1px; background: linear-gradient(to right, transparent, var(--purple-light), transparent); }
         .fade-in { opacity: 0; transform: translateY(30px); transition: opacity .8s ease, transform .8s ease; }
         .fade-in.visible { opacity: 1; transform: translateY(0); }
-        @media (max-width:600px){.main-wrapper{padding:1rem .75rem 3rem}.section-card{padding:2.5rem 1.2rem;border-radius:1.5rem;margin-bottom:1.25rem}.hero-card{padding:3rem 1.2rem}.hero-names{font-size:3rem}.hero-names .ampersand{font-size:1.8rem;margin:0 .3rem}.hero-names-ar{font-size:2.2rem}.verse-arabic{font-size:1.3rem;line-height:2.2}.countdown-grid{gap:.6rem}.countdown-item{min-width:65px;padding:1rem .6rem;border-radius:.9rem}.countdown-number{font-size:2rem}}
-        @media print{.petals-container,.floral-bg,.countdown-card{display:none!important}body{background:white;color:#000;font-size:12pt}.section-card{box-shadow:none;border:1px solid #ddd;break-inside:avoid;margin-bottom:1rem;padding:2rem 1.5rem;background:white}.section-card:hover{transform:none;box-shadow:none}.hero-names{-webkit-text-fill-color:#000;color:#000}.fade-in{opacity:1;transform:none}@page{margin:1cm}}
+        @media (max-width:600px){
+            .main-wrapper{padding:1rem .75rem 3rem}.section-card{padding:2.5rem 1.2rem;border-radius:1.5rem;margin-bottom:1.25rem}
+            .hero-card{padding:3rem 1.2rem}.hero-names{font-size:3rem}.hero-names .ampersand{font-size:1.8rem;margin:0 .3rem}
+            .hero-names-ar{font-size:2.2rem}.verse-arabic{font-size:1.3rem;line-height:2.2}
+            .countdown-grid{gap:.6rem}.countdown-item{min-width:65px;padding:1rem .6rem;border-radius:.9rem}
+            .countdown-number{font-size:2rem}.section-card .card-corner{font-size:2.2rem}.corner-flower{font-size:3.5rem}
+        }
+        @media print {
+            .petals-container,.countdown-card{display:none!important}.corner-flower{display:none!important}
+            body{background:#fff;color:#000;font-size:12pt}
+            .section-card{box-shadow:none;border:1px solid #ddd;break-inside:avoid;margin-bottom:1rem;padding:2rem 1.5rem}
+            .section-card:hover{transform:none;box-shadow:none}.hero-names{-webkit-text-fill-color:#000;color:#000}
+            .fade-in{opacity:1;transform:none}@page{margin:1cm}
+        }
     </style>
 </head>
 <body>
-    <div class="petals-container" aria-hidden="true"><div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div></div>
-    <div class="floral-bg" aria-hidden="true"></div>
+    <div class="corner-flower corner-tl" aria-hidden="true">🪻🍃💜</div>
+    <div class="corner-flower corner-tr" aria-hidden="true">💜🍃🪻</div>
+    <div class="corner-flower corner-bl" aria-hidden="true">🌸🌿🪻</div>
+    <div class="corner-flower corner-br" aria-hidden="true">🪻🌿🌸</div>
+    <div class="petals-container" aria-hidden="true">
+        <div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div>
+        <div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div>
+        <div class="petal"></div><div class="petal"></div><div class="petal"></div><div class="petal"></div>
+    </div>
     <main class="main-wrapper">
         <section class="section-card hero-card fade-in">
+            <span class="card-corner corner-a" aria-hidden="true">🪻🍃</span><span class="card-corner corner-b" aria-hidden="true">💜🌿</span><span class="card-corner corner-c" aria-hidden="true">🌸🍃</span><span class="card-corner corner-d" aria-hidden="true">🪻🌿</span>
             <div class="hero-top-ornament" aria-hidden="true">🪻 &nbsp;✦&nbsp; 🪻</div>
-            <p class="hero-label-en">You are invited to the Khutouba of</p>
+            <p class="hero-label-en">You are invited to the Engagement of</p>
             <p class="hero-label-ar" lang="ar">يسرنا دعوتكم لحضور خطوبة</p>
             <div class="floral-divider small" aria-hidden="true">✦</div>
             <h1 class="hero-names">Ghazi <span class="ampersand">&amp;</span> Bayan</h1>
@@ -107,14 +127,16 @@
             <p class="hero-date-preview">July 31, 2026</p>
         </section>
         <section class="section-card verse-card fade-in">
-            <div class="floral-ornament-top" aria-hidden="true"><span>🪻</span><div class="line"></div><span>🌿</span><div class="line"></div><span>🪻</span></div>
+            <span class="card-corner corner-a" aria-hidden="true">🪻🍃</span><span class="card-corner corner-b" aria-hidden="true">💜🌿</span><span class="card-corner corner-c" aria-hidden="true">🌸🍃</span><span class="card-corner corner-d" aria-hidden="true">🪻🌿</span>
+            <div class="floral-ornament-top" aria-hidden="true"><span>🪻</span><div class="line"></div><span>✨</span><div class="line"></div><span>🪻</span></div>
             <div class="bismillah" lang="ar">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</div>
             <p class="verse-arabic" lang="ar">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَتَفَكَّرُونَ</p>
             <div class="floral-divider small" aria-hidden="true">🪻</div>
             <p class="verse-translation">"And among His signs is that He created for you spouses from among yourselves, that you may find tranquility in them; and He placed between you affection and mercy. Indeed in that are signs for a people who give thought."</p>
-            <p class="verse-reference" lang="en">— Surah Ar-Rum, 30:21</p>
+            <p class="verse-reference">— Surah Ar-Rum, 30:21</p>
         </section>
         <section class="section-card countdown-card fade-in">
+            <span class="card-corner corner-a" aria-hidden="true">🪻🌿</span><span class="card-corner corner-b" aria-hidden="true">✨🍃</span><span class="card-corner corner-c" aria-hidden="true">💫🍃</span><span class="card-corner corner-d" aria-hidden="true">🪻🌿</span>
             <div class="floral-ornament-top" aria-hidden="true"><span>✨</span><div class="line"></div><span>💫</span><div class="line"></div><span>✨</span></div>
             <p class="countdown-title">Counting down to our special day</p>
             <div class="countdown-grid" id="countdown">
@@ -125,28 +147,30 @@
             </div>
         </section>
         <section class="section-card details-card fade-in">
+            <span class="card-corner corner-a" aria-hidden="true">💐🍃</span><span class="card-corner corner-b" aria-hidden="true">🪻🌿</span><span class="card-corner corner-c" aria-hidden="true">🌸🍃</span><span class="card-corner corner-d" aria-hidden="true">💐🌿</span>
             <div class="floral-ornament-top" aria-hidden="true"><span>💐</span><div class="line"></div><span>📍</span><div class="line"></div><span>💐</span></div>
             <h3 style="font-family:'Raleway',sans-serif;font-size:.8rem;text-transform:uppercase;letter-spacing:.3rem;color:var(--text-light);margin-bottom:2rem;font-weight:300;">Event Details</h3>
             <div class="detail-row"><div class="detail-icon">📅</div><div class="detail-content"><div class="detail-label">Date</div><div class="detail-value">Friday, July 31, 2026</div><div class="detail-value-ar" lang="ar">الجمعة ٣١ يوليو ٢٠٢٦</div></div></div>
             <div class="floral-divider small" aria-hidden="true">✿</div>
             <div class="detail-row"><div class="detail-icon">🕖</div><div class="detail-content"><div class="detail-label">Time</div><div class="detail-value">7:00 PM onwards</div><div class="detail-value-ar" lang="ar">من الساعة ٧:٠٠ مساءً</div></div></div>
             <div class="floral-divider small" aria-hidden="true">✿</div>
-            <div class="detail-row"><div class="detail-icon">📍</div><div class="detail-content"><div class="detail-label">Venue</div><div class="detail-value placeholder">Venue to be announced</div><div class="detail-value-ar placeholder" lang="ar" style="font-style:italic;color:var(--text-light);">سيتم الإعلان عن المكان قريباً</div></div></div>
+            <div class="detail-row"><div class="detail-icon">📍</div><div class="detail-content"><div class="detail-label">Location</div><div class="detail-value">Ahmad El Kadri's House (Aain Saba)</div><div class="detail-value-ar" lang="ar">احمد القادري (عين سلبا)</div></div></div>
         </section>
         <section class="section-card closing-card fade-in">
+            <span class="card-corner corner-a" aria-hidden="true">💕🍃</span><span class="card-corner corner-b" aria-hidden="true">🤍🌿</span><span class="card-corner corner-c" aria-hidden="true">💕🍃</span><span class="card-corner corner-d" aria-hidden="true">🤍🌿</span>
             <div class="floral-ornament-top" aria-hidden="true"><span>💕</span><div class="line"></div><span>🤍</span><div class="line"></div><span>💕</span></div>
             <p class="closing-text">"We look forward to sharing this beautiful moment with you, surrounded by love, laughter, and the warmth of family and friends."</p>
             <p class="closing-text-ar" lang="ar">نتطلع إلى مشاركتكم هذه اللحظة الجميلة، محاطين بالحب والفرح ودفء العائلة والأصدقاء.</p>
             <div class="floral-divider" aria-hidden="true">💐</div>
             <p class="closing-signature">Ghazi &amp; Bayan</p>
-            <p lang="ar" style="font-family:'Amiri',serif;font-size:1.3rem;color:var(--rose-dark);margin-top:.3rem;">غازي وبيان</p>
+            <p lang="ar" style="font-family:'Amiri',serif;font-size:1.3rem;color:var(--purple-dark);margin-top:.3rem;">غازي وبيان</p>
         </section>
     </main>
     <script>
-        function updateCountdown(){const e=new Date(2026,6,31,19,0,0),n=new Date,e2=e-n;if(e2<=0){['days','hours','minutes','seconds'].forEach(e=>{document.getElementById('countdown-'+e).textContent='0'});return}const d=Math.floor(e2/864e5),h=Math.floor(e2%864e5/36e5),m=Math.floor(e2%36e5/6e4),s=Math.floor(e2%6e4/1e3);document.getElementById('countdown-days').textContent=d,document.getElementById('countdown-hours').textContent=h.toString().padStart(2,'0'),document.getElementById('countdown-minutes').textContent=m.toString().padStart(2,'0'),document.getElementById('countdown-seconds').textContent=s.toString().padStart(2,'0')}
+        function updateCountdown(){const e=new Date(2026,6,31,19,0,0),n=new Date,t=e-n;if(t<=0){['days','hours','minutes','seconds'].forEach(e=>{document.getElementById('countdown-'+e).textContent='0'});return}document.getElementById('countdown-days').textContent=Math.floor(t/864e5);document.getElementById('countdown-hours').textContent=Math.floor(t%864e5/36e5).toString().padStart(2,'0');document.getElementById('countdown-minutes').textContent=Math.floor(t%36e5/6e4).toString().padStart(2,'0');document.getElementById('countdown-seconds').textContent=Math.floor(t%6e4/1e3).toString().padStart(2,'0')}
         updateCountdown();setInterval(updateCountdown,1e3);
-        const observer=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting&&e.target.classList.add('visible')})},{threshold:.15,rootMargin:'0px 0px -50px 0px'});
-        document.querySelectorAll('.fade-in').forEach(e=>observer.observe(e));
+        const o=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting&&e.target.classList.add('visible')})},{threshold:.15,rootMargin:'0px 0px -50px 0px'});
+        document.querySelectorAll('.fade-in').forEach(e=>o.observe(e));
         window.addEventListener('load',()=>{document.querySelectorAll('.fade-in').forEach(e=>{e.getBoundingClientRect().top<window.innerHeight&&e.classList.add('visible')})});
     </script>
 </body>
