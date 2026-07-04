@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>Ghazi & Bayan — Engagement (Modern Minimalist)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Great+Vibes&family=Raleway:ital,wght@0,200;0,300;0,400;0,500;1,300&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    <style>
+        @page { size: A4; margin: 0; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Raleway', sans-serif; -webkit-font-smoothing: antialiased; }
+        .page {
+            width: 210mm; height: 297mm; overflow: hidden; position: relative;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            background: #fffefc;
+        }
+        /* Single elegant corner spray */
+        .corner-spray {
+            position: absolute; pointer-events: none; z-index: 1;
+            bottom: 1.2cm; right: 1.2cm;
+            font-size: 5rem; line-height: .8; opacity: .10; text-align: right;
+        }
+        .page::before {
+            content: ''; position: absolute; top: 1.8cm; left: 1.8cm; right: 1.8cm; bottom: 1.8cm;
+            border: 1px solid rgba(160,140,120,.18); pointer-events: none; z-index: 2;
+        }
+        .content { position: relative; z-index: 3; text-align: center; max-width: 11cm; padding: 0; }
+        .bismillah { font-family: 'Amiri', serif; font-size: 1.4rem; color: #b09070; margin-bottom: .7cm; }
+        .label-en { font-family: 'Raleway', sans-serif; font-size: .5rem; text-transform: uppercase; letter-spacing: .35rem; color: #988070; margin-bottom: .14cm; font-weight: 500; }
+        .label-ar { font-family: 'Amiri', serif; font-size: .78rem; color: #b09070; margin-bottom: .3cm; }
+        .thin-line { width: 60px; height: .5px; background: #b09070; margin: .35cm auto; }
+        .names-en {
+            font-family: 'Great Vibes', cursive; font-size: 3.8rem; font-weight: 400; line-height: 1.25; margin: .2cm 0;
+            color: #3a2015;
+        }
+        .names-en .amp { font-family: 'Great Vibes', cursive; font-size: 2.5rem; color: #b09070; vertical-align: middle; margin: 0 .3rem; font-weight: 400; }
+        .names-ar { font-family: 'Amiri', serif; font-size: 1.9rem; font-weight: 700; color: #3a2015; margin: .15cm 0; letter-spacing: .6rem; }
+        .subtitle { font-family: 'Raleway', sans-serif; font-size: .52rem; text-transform: uppercase; letter-spacing: .28rem; color: #988070; margin-top: .25cm; font-weight: 400; }
+        .verse-arabic { font-family: 'Amiri', serif; font-size: 1rem; line-height: 2.2; color: #3a2015; direction: rtl; max-width: 10.5cm; margin: .5cm auto 0; }
+        .verse-translation { font-family: 'Raleway', sans-serif; font-size: .65rem; line-height: 1.6; font-style: italic; color: #8a7060; max-width: 10cm; margin: .2cm auto 0; direction: ltr; text-align: center; font-weight: 300; }
+        .verse-ref { font-family: 'Raleway', sans-serif; font-size: .45rem; text-transform: uppercase; letter-spacing: .2rem; color: #988070; margin-top: .2cm; font-weight: 400; }
+        .info-block { display: flex; justify-content: center; gap: 2cm; margin: .55cm 0; flex-wrap: wrap; }
+        .info-item { text-align: center; }
+        .info-label { font-family: 'Raleway', sans-serif; font-size: .44rem; text-transform: uppercase; letter-spacing: .18rem; color: #988070; margin-bottom: .06cm; font-weight: 500; }
+        .info-value { font-family: 'Playfair Display', serif; font-size: .82rem; color: #3a2015; font-weight: 400; font-style: italic; }
+        .info-value-ar { font-family: 'Amiri', serif; font-size: .7rem; color: #3a2015; direction: rtl; display: block; }
+        .closing { font-family: 'Raleway', sans-serif; font-size: .65rem; font-style: italic; color: #8a7060; margin-top: .4cm; line-height: 1.6; font-weight: 300; }
+        .closing-ar { font-family: 'Amiri', serif; font-size: .7rem; color: #8a7060; direction: rtl; }
+        .signature { font-family: 'Great Vibes', cursive; font-size: 1.8rem; color: #988070; margin-top: .3cm; }
+        .signature-ar { font-family: 'Amiri', serif; font-size: .9rem; color: #988070; }
+        .vlabel { position: absolute; top: .35cm; right: .7cm; font-family: 'Raleway', sans-serif; font-size: .38rem; text-transform: uppercase; letter-spacing: .1rem; color: #b09070; z-index: 4; }
+        .print-btn { position: fixed; top: .8rem; right: .8rem; background: #988070; color: #fff; border: none; padding: .6rem 1.3rem; border-radius: 2rem; font-family: 'Raleway', sans-serif; font-size: .75rem; letter-spacing: .08rem; cursor: pointer; z-index: 100; }
+        .print-btn:hover { background: #786050; }
+        @media print { .print-btn{display:none!important} body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact} .page{box-shadow:none;width:210mm;height:297mm} }
+        @media screen { body{background:#e8e0d8;display:flex;flex-direction:column;align-items:center;padding:1.5rem} .page{box-shadow:0 4px 40px rgba(0,0,0,.08);border-radius:2px} }
+    </style>
+</head>
+<body>
+    <button class="print-btn" onclick="window.print()">🖨 Save as PDF</button>
+    <div class="page">
+        <span class="vlabel">Modern Minimalist</span>
+        <div class="corner-spray" aria-hidden="true">🌹<br>🍂🌿</div>
+        <div class="content">
+            <div class="bismillah">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</div>
+            <p class="label-en">You are invited to the Engagement of</p>
+            <p class="label-ar">يسرنا دعوتكم لحضور خطوبة</p>
+            <div class="thin-line"></div>
+            <h1 class="names-en">Ghazi <span class="amp">&amp;</span> Bayan</h1>
+            <h2 class="names-ar">غازي &nbsp;&nbsp;&nbsp; و &nbsp;&nbsp;&nbsp; بيان</h2>
+            <div class="thin-line"></div>
+            <p class="subtitle">Together with their families</p>
+            <p class="verse-arabic">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَتَفَكَّرُونَ</p>
+            <p class="verse-translation">"And among His signs is that He created for you spouses from among yourselves, that you may find tranquility in them; and He placed between you affection and mercy."</p>
+            <p class="verse-ref">— Surah Ar-Rum, 30:21</p>
+            <div class="info-block">
+                <div class="info-item"><div class="info-label">Date</div><div class="info-value">Friday, July 31, 2026</div><div class="info-value-ar">الجمعة ٣١ يوليو ٢٠٢٦</div></div>
+                <div class="info-item"><div class="info-label">Time</div><div class="info-value">7:00 PM</div><div class="info-value-ar">٧:٠٠ مساءً</div></div>
+                <div class="info-item"><div class="info-label">Location</div><div class="info-value">Ahmad El Kadri's House (Aain Saba)</div><div class="info-value-ar">منزل احمد القادري (عين سابا)</div></div>
+            </div>
+            <p class="closing">"We look forward to sharing this beautiful moment with you, surrounded by love, laughter, and the warmth of family and friends."</p>
+            <p class="closing-ar">نتطلع إلى مشاركتكم هذه اللحظة الجميلة، محاطين بالحب والفرح ودفء العائلة والأصدقاء.</p>
+            <p class="signature">Ghazi &amp; Bayan</p>
+            <p class="signature-ar">غازي وبيان</p>
+        </div>
+    </div>
+</body>
+</html>

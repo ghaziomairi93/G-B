@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>Ghazi & Bayan — Engagement (Garden Romance)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Great+Vibes&family=Raleway:ital,wght@0,200;0,300;0,400;0,500;1,300&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        @page { size: A4; margin: 0; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Cormorant Garamond', 'Georgia', serif; -webkit-font-smoothing: antialiased; }
+        .page {
+            width: 210mm; height: 297mm; overflow: hidden; position: relative;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            background: linear-gradient(180deg, #fff8f5 0%, #fff5f0 30%, #fffaf8 60%, #fff5f0 100%);
+        }
+        /* Full soft floral border */
+        .garden-tl, .garden-tr, .garden-bl, .garden-br {
+            position: absolute; pointer-events: none; z-index: 1;
+            font-size: 4.5rem; line-height: .85; opacity: .12;
+        }
+        .garden-tl { top: 1.2cm; left: 1.2cm; }
+        .garden-tr { top: 1.2cm; right: 1.2cm; text-align: right; }
+        .garden-bl { bottom: 1.2cm; left: 1.2cm; }
+        .garden-br { bottom: 1.2cm; right: 1.2cm; text-align: right; }
+        .page::before {
+            content: ''; position: absolute; top: 1.8cm; left: 1.8cm; right: 1.8cm; bottom: 1.8cm;
+            border: 1.5px solid rgba(200,160,150,.25); border-radius: .6rem; pointer-events: none; z-index: 2;
+        }
+        .content { position: relative; z-index: 3; text-align: center; max-width: 12cm; padding: 0; }
+        .bismillah { font-family: 'Amiri', serif; font-size: 1.45rem; color: #c08870; margin-bottom: .6cm; }
+        .label-en { font-family: 'Raleway', sans-serif; font-size: .56rem; text-transform: uppercase; letter-spacing: .3rem; color: #b08070; margin-bottom: .13cm; font-weight: 400; }
+        .label-ar { font-family: 'Amiri', serif; font-size: .82rem; color: #c89878; margin-bottom: .28cm; }
+        .swirl { font-size: 1.1rem; color: #d0a090; letter-spacing: .5rem; margin: .3cm 0; }
+        .names-en {
+            font-family: 'Dancing Script', cursive; font-size: 3.4rem; font-weight: 500; line-height: 1.3; margin: .18cm 0;
+            background: linear-gradient(135deg, #4a2820 30%, #b07060 70%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+        .names-en .amp { font-family: 'Dancing Script', cursive; font-size: 2.2rem; -webkit-text-fill-color: #c08870; vertical-align: middle; margin: 0 .4rem; font-weight: 400; }
+        .names-ar { font-family: 'Amiri', serif; font-size: 1.9rem; font-weight: 700; color: #4a2820; margin: .15cm 0; letter-spacing: .6rem; }
+        .subtitle { font-family: 'Raleway', sans-serif; font-size: .55rem; text-transform: uppercase; letter-spacing: .25rem; color: #b07060; margin-top: .22cm; font-weight: 400; }
+        .verse-arabic { font-family: 'Amiri', serif; font-size: 1rem; line-height: 2.15; color: #4a2820; direction: rtl; max-width: 11cm; margin: .48cm auto 0; }
+        .verse-translation { font-family: 'Cormorant Garamond', serif; font-size: .78rem; line-height: 1.5; font-style: italic; color: #8a5850; max-width: 10cm; margin: .22cm auto 0; direction: ltr; text-align: center; }
+        .verse-ref { font-family: 'Raleway', sans-serif; font-size: .48rem; text-transform: uppercase; letter-spacing: .14rem; color: #b08070; margin-top: .18cm; }
+        .info-block { display: flex; justify-content: center; gap: 2cm; margin: .5cm 0; flex-wrap: wrap; }
+        .info-item { text-align: center; }
+        .info-label { font-family: 'Raleway', sans-serif; font-size: .45rem; text-transform: uppercase; letter-spacing: .15rem; color: #b08070; margin-bottom: .06cm; }
+        .info-value { font-family: 'Cormorant Garamond', serif; font-size: .88rem; color: #4a2820; font-weight: 500; }
+        .info-value-ar { font-family: 'Amiri', serif; font-size: .7rem; color: #4a2820; direction: rtl; display: block; }
+        .closing { font-family: 'Cormorant Garamond', serif; font-size: .8rem; font-style: italic; color: #8a5850; margin-top: .38cm; line-height: 1.45; }
+        .closing-ar { font-family: 'Amiri', serif; font-size: .72rem; color: #8a5850; direction: rtl; }
+        .signature { font-family: 'Dancing Script', cursive; font-size: 1.8rem; font-weight: 500; color: #b07060; margin-top: .3cm; }
+        .signature-ar { font-family: 'Amiri', serif; font-size: .92rem; color: #b07060; }
+        .vlabel { position: absolute; top: .35cm; right: .7cm; font-family: 'Raleway', sans-serif; font-size: .38rem; text-transform: uppercase; letter-spacing: .1rem; color: #d0a090; z-index: 4; }
+        .print-btn { position: fixed; top: .8rem; right: .8rem; background: #b07060; color: #fff; border: none; padding: .6rem 1.3rem; border-radius: 2rem; font-family: 'Raleway', sans-serif; font-size: .75rem; letter-spacing: .08rem; cursor: pointer; z-index: 100; }
+        .print-btn:hover { background: #905848; }
+        @media print { .print-btn{display:none!important} body{background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact} .page{box-shadow:none;width:210mm;height:297mm} .names-en{-webkit-text-fill-color:#4a2820;background:none} .names-en .amp{-webkit-text-fill-color:#c08870} }
+        @media screen { body{background:#e8d8d0;display:flex;flex-direction:column;align-items:center;padding:1.5rem} .page{box-shadow:0 4px 40px rgba(0,0,0,.10);border-radius:2px} }
+    </style>
+</head>
+<body>
+    <button class="print-btn" onclick="window.print()">🖨 Save as PDF</button>
+    <div class="page">
+        <span class="vlabel">Garden Romance</span>
+        <div class="garden-tl" aria-hidden="true">💐<br>🌿🌸</div>
+        <div class="garden-tr" aria-hidden="true">🌸<br>🌿💐</div>
+        <div class="garden-bl" aria-hidden="true">💐<br>🌸🌿</div>
+        <div class="garden-br" aria-hidden="true">🌿<br>🌸💐</div>
+        <div class="content">
+            <div class="bismillah">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</div>
+            <p class="label-en">You are invited to the Engagement of</p>
+            <p class="label-ar">يسرنا دعوتكم لحضور خطوبة</p>
+            <div class="swirl">~ &nbsp; ✿ &nbsp; ~</div>
+            <h1 class="names-en">Ghazi <span class="amp">&amp;</span> Bayan</h1>
+            <h2 class="names-ar">غازي &nbsp;&nbsp;&nbsp; و &nbsp;&nbsp;&nbsp; بيان</h2>
+            <div class="swirl">~ &nbsp; ✿ &nbsp; ~</div>
+            <p class="subtitle">Together with their families</p>
+            <p class="verse-arabic">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَتَفَكَّرُونَ</p>
+            <p class="verse-translation">"And among His signs is that He created for you spouses from among yourselves, that you may find tranquility in them; and He placed between you affection and mercy."</p>
+            <p class="verse-ref">— Surah Ar-Rum, 30:21</p>
+            <div class="info-block">
+                <div class="info-item"><div class="info-label">Date</div><div class="info-value">Friday, July 31, 2026</div><div class="info-value-ar">الجمعة ٣١ يوليو ٢٠٢٦</div></div>
+                <div class="info-item"><div class="info-label">Time</div><div class="info-value">7:00 PM</div><div class="info-value-ar">٧:٠٠ مساءً</div></div>
+                <div class="info-item"><div class="info-label">Location</div><div class="info-value">Ahmad El Kadri's House (Aain Saba)</div><div class="info-value-ar">منزل احمد القادري (عين سابا)</div></div>
+            </div>
+            <p class="closing">"We look forward to sharing this beautiful moment with you, surrounded by love, laughter, and the warmth of family and friends."</p>
+            <p class="closing-ar">نتطلع إلى مشاركتكم هذه اللحظة الجميلة، محاطين بالحب والفرح ودفء العائلة والأصدقاء.</p>
+            <p class="signature">Ghazi &amp; Bayan</p>
+            <p class="signature-ar">غازي وبيان</p>
+        </div>
+    </div>
+</body>
+</html>
