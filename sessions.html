@@ -260,35 +260,99 @@
         </div>
 
         <!-- PDF VERSION -->
-        <div class="section-title">🖨 Printable PDF Version</div>
+        <div class="section-title">🖨 Printable PDF — All 3 Versions</div>
         <div class="pdf-section">
             <div class="pdf-icon">📄</div>
             <div class="pdf-info">
-                <h3>Printable Invitation (A4)</h3>
-                <p>A print-optimized A4 version designed to be saved as PDF or printed on paper. Includes the Quranic verse and all event details. Perfect for sharing with family who prefer a physical invitation.</p>
+                <h3>Combined PDF (3 Pages)</h3>
+                <p>All three invitation designs in one file — one per A4 page. Each page preserves the original colors, backgrounds, and formatting. Click <strong>Save as PDF</strong> in the print dialog, set to <strong>A4</strong> and enable <strong>Background Graphics</strong>.</p>
+                <p style="font-size:0.75rem;color:var(--text-light);margin-top:0.5rem;">💡 Tip: In Chrome, press Ctrl+P → Destination: "Save as PDF" → Paper: A4 → ✅ Background graphics</p>
             </div>
             <div class="quick-actions">
-                <a href="invite-pdf.html" target="_blank" class="btn btn-primary">Open &amp; Print</a>
+                <a href="combined-pdf.html" target="_blank" class="btn btn-primary">Open &amp; Print</a>
             </div>
         </div>
 
-        <!-- HOW TO USE -->
-        <div class="section-title">📋 How to Switch the Live Version</div>
+        <!-- HOW TO SWITCH (GITHUB) -->
+        <div class="section-title">📋 How to Switch the Live Version — Command Line</div>
         <div class="pdf-section" style="display:block;">
-            <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;margin-bottom:0.8rem;">Via GitHub (recommended)</h3>
-            <p style="font-size:0.85rem;color:var(--text-light);margin-bottom:0.5rem;">
-                Merge the branch you want live into <code style="background:#f9f3f0;padding:0.15rem 0.4rem;border-radius:0.3rem;font-size:0.8rem;">main</code>:
-            </p>
-            <div style="background:#2d1f21;color:#f0d9dd;padding:1rem 1.2rem;border-radius:0.8rem;font-family:monospace;font-size:0.8rem;margin:0.8rem 0;">
-                git checkout main &amp;&amp; git merge version-2-peach &amp;&amp; git push
-            </div>
-            <p style="font-size:0.85rem;color:var(--text-light);">
-                Netlify auto-detects the push and redeploys in ~30 seconds.
+            <p style="font-size:0.85rem;color:var(--text-light);margin-bottom:0.8rem;">
+                The live site is whatever is on the <code style="background:#f9f3f0;padding:0.15rem 0.4rem;border-radius:0.3rem;font-size:0.8rem;">main</code> branch. To switch, merge your desired version into main and push:
             </p>
 
-            <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;margin:1.2rem 0 0.8rem;">Via Netlify Dashboard</h3>
+            <div style="background:#2d1f21;color:#f0d9dd;padding:1rem 1.2rem;border-radius:0.8rem;font-family:monospace;font-size:0.8rem;margin:0.8rem 0;line-height:1.8;">
+                <div style="color:#889988;"># Example: switch to the Peach version</div>
+                git checkout main<br>
+                git merge version-2-peach<br>
+                git push<br>
+                <br>
+                <div style="color:#889988;"># To switch back to the original Floral:</div>
+                git checkout main<br>
+                git merge version-3-lavender<br>
+                git push
+            </div>
             <p style="font-size:0.85rem;color:var(--text-light);">
-                Go to Netlify → Deploys → find the branch deploy you want → click <strong>"Publish deploy"</strong>. Instant switch, no code needed.
+                ⚡ Netlify auto-detects every push and redeploys in ~30 seconds. No manual steps needed.
+            </p>
+        </div>
+
+        <!-- HOW TO SWITCH (GITHUB DESKTOP) -->
+        <div class="section-title">🖥 How to Switch Using GitHub Desktop</div>
+        <div class="pdf-section" style="display:block;">
+            <p style="font-size:0.85rem;color:var(--text-light);margin-bottom:0.8rem;">
+                If you prefer a visual interface over the command line, GitHub Desktop makes switching versions easy:
+            </p>
+
+            <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.15rem;margin:0.8rem 0 0.5rem;color:var(--rose-dark);">Step-by-Step</h3>
+
+            <ol style="font-size:0.85rem;color:var(--text);line-height:2;padding-left:1.5rem;">
+                <li><strong>Open GitHub Desktop</strong> → Click <em>"Add"</em> → <em>"Add Existing Repository"</em> → select the <code style="background:#f9f3f0;padding:0.1rem 0.3rem;border-radius:0.3rem;font-size:0.8rem;">our day</code> folder</li>
+                <li>In the top bar, make sure you're on the <strong>"main"</strong> branch (Current Branch dropdown)</li>
+                <li>Click <strong>Branch → Merge into Current Branch</strong> (or Ctrl+Shift+M)</li>
+                <li>Select the version you want: <code style="background:#f9f3f0;padding:0.1rem 0.3rem;border-radius:0.3rem;font-size:0.8rem;">version-2-peach</code> or <code style="background:#f9f3f0;padding:0.1rem 0.3rem;border-radius:0.3rem;font-size:0.8rem;">version-3-lavender</code></li>
+                <li>Click <strong>"Merge"</strong> — the version's files now replace main</li>
+                <li>Click <strong>"Push origin"</strong> (or Ctrl+P) to upload to GitHub</li>
+                <li>⏱ Wait ~30 seconds — Netlify auto-redeploys your new live version!</li>
+            </ol>
+
+            <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.15rem;margin:1rem 0 0.5rem;color:var(--rose-dark);">Visual Walkthrough</h3>
+
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;margin:0.5rem 0;">
+                <div style="background:#f9f3f0;padding:0.8rem;border-radius:0.5rem;font-size:0.8rem;line-height:1.6;">
+                    <strong>① Current Branch:</strong><br>
+                    Top bar → dropdown → select <code>main</code>
+                </div>
+                <div style="background:#f9f3f0;padding:0.8rem;border-radius:0.5rem;font-size:0.8rem;line-height:1.6;">
+                    <strong>② Merge:</strong><br>
+                    Branch menu → Merge into Current Branch → pick the version
+                </div>
+                <div style="background:#f9f3f0;padding:0.8rem;border-radius:0.5rem;font-size:0.8rem;line-height:1.6;">
+                    <strong>③ Push:</strong><br>
+                    Click "Push origin" button in the top bar (or Ctrl+P)
+                </div>
+                <div style="background:#f9f3f0;padding:0.8rem;border-radius:0.5rem;font-size:0.8rem;line-height:1.6;">
+                    <strong>④ Done!</strong><br>
+                    Netlify redeploys automatically. Check your live URL.
+                </div>
+            </div>
+
+            <p style="font-size:0.8rem;color:var(--text-light);margin-top:0.5rem;">
+                💡 <strong>Note:</strong> If merge conflicts happen (unlikely since each version is self-contained), GitHub Desktop will show them — just accept the incoming version's changes.
+            </p>
+        </div>
+
+        <!-- HOW TO SWITCH (NETLIFY) -->
+        <div class="section-title">🌐 Switch via Netlify Dashboard (No Code)</div>
+        <div class="pdf-section" style="display:block;">
+            <ol style="font-size:0.85rem;color:var(--text);line-height:2;padding-left:1.5rem;">
+                <li>Go to <a href="https://app.netlify.com" target="_blank" style="color:var(--rose-dark);">app.netlify.com</a> → select your <strong>ghazi-bayan</strong> site</li>
+                <li>Click the <strong>"Deploys"</strong> tab in the left sidebar</li>
+                <li>You'll see all branch deploys listed — each with a timestamp and preview link</li>
+                <li>Hover over the deploy you want live → click <strong>"Publish deploy"</strong></li>
+                <li>✅ Done! Instant switch — the new version is now live at <code style="background:#f9f3f0;padding:0.1rem 0.3rem;border-radius:0.3rem;font-size:0.8rem;">ghazi-bayan.netlify.app</code></li>
+            </ol>
+            <p style="font-size:0.8rem;color:var(--text-light);margin-top:0.5rem;">
+                💡 This is the fastest method — no git commands, no app needed. Just click and it's live.
             </p>
         </div>
 

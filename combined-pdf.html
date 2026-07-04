@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>Ghazi & Bayan — Khutouba Invitation (All Versions)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Great+Vibes&family=Raleway:ital,wght@0,200;0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Cormorant Garamond', 'Georgia', serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ===== COMMON PAGE STYLES ===== */
+        .page {
+            width: 210mm;
+            height: 297mm;
+            overflow: hidden;
+            position: relative;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1.2cm 1.5cm;
+            page-break-after: always;
+        }
+        .page:last-child { page-break-after: auto; }
+
+        /* Decorative inner border */
+        .page::before {
+            content: '';
+            position: absolute;
+            top: 1cm; left: 1cm; right: 1cm; bottom: 1cm;
+            border: 1px solid rgba(0,0,0,0.08);
+            border-radius: 0.3rem;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .page-content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 15cm;
+        }
+
+        .section-card {
+            border-radius: 1rem;
+            padding: 1.2cm 1.5cm 1cm;
+            margin-bottom: 0.5cm;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.04);
+        }
+
+        .ornament-top {
+            font-size: 1.8rem;
+            letter-spacing: 0.5rem;
+            margin-bottom: 0.4cm;
+            opacity: 0.6;
+        }
+
+        .bismillah {
+            font-family: 'Amiri', serif;
+            font-size: 1.5rem;
+            margin-bottom: 0.3cm;
+        }
+
+        .label-en {
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.25rem;
+            margin-bottom: 0.15cm;
+            font-weight: 300;
+        }
+        .label-ar {
+            font-family: 'Amiri', serif;
+            font-size: 0.85rem;
+            margin-bottom: 0.2cm;
+            font-weight: 400;
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            margin: 0.3cm 0;
+            font-size: 0.7rem;
+            opacity: 0.5;
+        }
+        .divider::before, .divider::after {
+            content: '';
+            flex: 1;
+            max-width: 50px;
+            height: 1px;
+        }
+
+        .names {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3rem;
+            font-weight: 400;
+            line-height: 1.2;
+            margin: 0.1cm 0;
+            background: linear-gradient(135deg, #3d2c2e 30%, #b07b84 70%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .names .amp {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            -webkit-text-fill-color: #c4a35a;
+            vertical-align: middle;
+            margin: 0 0.3rem;
+            font-style: italic;
+        }
+        .names-ar {
+            font-family: 'Amiri', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin: 0.1cm 0;
+        }
+
+        .subtitle {
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2rem;
+            margin-top: 0.3cm;
+            font-weight: 300;
+        }
+
+        .verse-arabic {
+            font-family: 'Amiri', serif;
+            font-size: 1.05rem;
+            line-height: 2.1;
+            font-weight: 400;
+            direction: rtl;
+            unicode-bidi: embed;
+            max-width: 12cm;
+            margin: 0 auto;
+        }
+        .verse-translation {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.8rem;
+            line-height: 1.5;
+            font-style: italic;
+            max-width: 10cm;
+            margin: 0.3cm auto 0;
+            direction: ltr;
+        }
+        .verse-ref {
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.55rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15rem;
+        }
+
+        .detail-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            margin: 0.3cm 0;
+        }
+        .detail-icon { font-size: 1.2rem; flex-shrink: 0; }
+        .detail-text { text-align: start; min-width: 7cm; }
+        .detail-label {
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12rem;
+            font-weight: 400;
+            margin-bottom: 0.05cm;
+        }
+        .detail-value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        .detail-value-ar {
+            font-family: 'Amiri', serif;
+            font-size: 0.75rem;
+            font-weight: 400;
+            direction: rtl;
+        }
+
+        .closing-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.85rem;
+            font-style: italic;
+            max-width: 10cm;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+        .closing-text-ar {
+            font-family: 'Amiri', serif;
+            font-size: 0.75rem;
+            direction: rtl;
+            margin-top: 0.2cm;
+        }
+        .signature {
+            font-family: 'Great Vibes', cursive;
+            font-size: 1.8rem;
+            margin-top: 0.4cm;
+        }
+        .signature-ar {
+            font-family: 'Amiri', serif;
+            font-size: 1rem;
+            margin-top: 0.1cm;
+        }
+
+        .version-label {
+            position: absolute;
+            top: 0.3cm;
+            right: 0.6cm;
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.45rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1rem;
+            opacity: 0.5;
+            z-index: 3;
+        }
+
+        /* ===== PAGE 1: ROMANTIC FLORAL (ROSE) ===== */
+        .page-rose {
+            background: #fdf6f0;
+        }
+        .page-rose .section-card {
+            background: #fffaf8;
+            border: 1px solid rgba(212,160,167,0.2);
+        }
+        .page-rose .bismillah { color: #c4a35a; }
+        .page-rose .label-en { color: #6d5a5c; }
+        .page-rose .label-ar { color: #b07b84; }
+        .page-rose .names {
+            background: linear-gradient(135deg, #3d2c2e 30%, #b07b84 70%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .page-rose .names-ar { color: #3d2c2e; }
+        .page-rose .subtitle { color: #b07b84; }
+        .page-rose .divider { color: #d4a0a7; }
+        .page-rose .divider::before, .page-rose .divider::after {
+            background: linear-gradient(to right, transparent, #d4a0a7, transparent);
+        }
+        .page-rose .ornament-top { color: #d4a0a7; }
+        .page-rose .verse-arabic { color: #3d2c2e; }
+        .page-rose .verse-translation { color: #6b5558; }
+        .page-rose .verse-ref { color: #8c7578; }
+        .page-rose .detail-label { color: #6d5a5c; }
+        .page-rose .detail-value { color: #3d2c2e; }
+        .page-rose .detail-value-ar { color: #3d2c2e; }
+        .page-rose .detail-icon { color: #d4a0a7; }
+        .page-rose .closing-text { color: #6b5558; }
+        .page-rose .closing-text-ar { color: #6b5558; }
+        .page-rose .signature { color: #b07b84; }
+        .page-rose .signature-ar { color: #b07b84; }
+        .page-rose::before { border-color: rgba(212,160,167,0.2); }
+
+        /* ===== PAGE 2: ROMANTIC PEACH ===== */
+        .page-peach {
+            background: #fdf3ea;
+        }
+        .page-peach .section-card {
+            background: #fffaf6;
+            border: 1px solid rgba(224,166,142,0.2);
+        }
+        .page-peach .bismillah { color: #c49a55; }
+        .page-peach .label-en { color: #7a5e52; }
+        .page-peach .label-ar { color: #c88267; }
+        .page-peach .names {
+            background: linear-gradient(135deg, #3d2820 30%, #c88267 70%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .page-peach .names-ar { color: #3d2820; }
+        .page-peach .subtitle { color: #c88267; }
+        .page-peach .divider { color: #e0a68e; }
+        .page-peach .divider::before, .page-peach .divider::after {
+            background: linear-gradient(to right, transparent, #e0a68e, transparent);
+        }
+        .page-peach .ornament-top { color: #e0a68e; }
+        .page-peach .verse-arabic { color: #3d2820; }
+        .page-peach .verse-translation { color: #6b4d3f; }
+        .page-peach .verse-ref { color: #9a7a6a; }
+        .page-peach .detail-label { color: #7a5e52; }
+        .page-peach .detail-value { color: #3d2820; }
+        .page-peach .detail-value-ar { color: #3d2820; }
+        .page-peach .detail-icon { color: #e0a68e; }
+        .page-peach .closing-text { color: #6b4d3f; }
+        .page-peach .closing-text-ar { color: #6b4d3f; }
+        .page-peach .signature { color: #c88267; }
+        .page-peach .signature-ar { color: #c88267; }
+        .page-peach::before { border-color: rgba(224,166,142,0.2); }
+
+        /* ===== PAGE 3: ROMANTIC LAVENDER ===== */
+        .page-lavender {
+            background: #f3eff9;
+        }
+        .page-lavender .section-card {
+            background: #faf8fc;
+            border: 1px solid rgba(184,165,201,0.2);
+        }
+        .page-lavender .bismillah { color: #c4a35a; }
+        .page-lavender .label-en { color: #776b82; }
+        .page-lavender .label-ar { color: #9a82b0; }
+        .page-lavender .names {
+            background: linear-gradient(135deg, #2d2538 30%, #9a82b0 70%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .page-lavender .names-ar { color: #2d2538; }
+        .page-lavender .subtitle { color: #9a82b0; }
+        .page-lavender .divider { color: #b8a5c9; }
+        .page-lavender .divider::before, .page-lavender .divider::after {
+            background: linear-gradient(to right, transparent, #b8a5c9, transparent);
+        }
+        .page-lavender .ornament-top { color: #b8a5c9; }
+        .page-lavender .verse-arabic { color: #2d2538; }
+        .page-lavender .verse-translation { color: #5a5068; }
+        .page-lavender .verse-ref { color: #8c8298; }
+        .page-lavender .detail-label { color: #776b82; }
+        .page-lavender .detail-value { color: #2d2538; }
+        .page-lavender .detail-value-ar { color: #2d2538; }
+        .page-lavender .detail-icon { color: #b8a5c9; }
+        .page-lavender .closing-text { color: #5a5068; }
+        .page-lavender .closing-text-ar { color: #5a5068; }
+        .page-lavender .signature { color: #9a82b0; }
+        .page-lavender .signature-ar { color: #9a82b0; }
+        .page-lavender::before { border-color: rgba(184,165,201,0.2); }
+
+        /* ===== PRINT BUTTON ===== */
+        .print-btn {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            background: #b07b84;
+            color: white;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 2rem;
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 0.1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+            z-index: 100;
+        }
+        .print-btn:hover { background: #9a6b74; }
+
+        @media print {
+            .print-btn { display: none !important; }
+            body {
+                background: white;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .page {
+                box-shadow: none;
+                width: 210mm;
+                height: 297mm;
+            }
+        }
+
+        @media screen {
+            body {
+                background: #e8e0d8;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 2rem;
+                gap: 2rem;
+            }
+            .page {
+                box-shadow: 0 4px 40px rgba(0,0,0,0.15);
+                border-radius: 2px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="print-btn" onclick="window.print()">🖨 Save as PDF (All 3 Pages)</button>
+
+    <!-- ===== PAGE 1: ROMANTIC FLORAL (ROSE) ===== -->
+    <div class="page page-rose">
+        <span class="version-label">Version 1 — Romantic Floral</span>
+        <div class="page-content">
+            <div class="section-card">
+                <div class="ornament-top">✿ &nbsp;✦&nbsp; ✿</div>
+                <div class="bismillah">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</div>
+                <p class="label-en">You are invited to the Khutouba of</p>
+                <p class="label-ar">يسرنا دعوتكم لحضور خطوبة</p>
+                <div class="divider">✦</div>
+                <h1 class="names">Ghazi <span class="amp">&amp;</span> Bayan</h1>
+                <h2 class="names-ar">غازي وبيان</h2>
+                <div class="divider">✦</div>
+                <p class="subtitle">Together with their families</p>
+            </div>
+
+            <div class="section-card" style="padding: 0.6cm 1.5cm;">
+                <p class="verse-arabic">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَتَفَكَّرُونَ</p>
+                <div class="divider">🌹</div>
+                <p class="verse-translation">"And among His signs is that He created for you spouses from among yourselves, that you may find tranquility in them; and He placed between you affection and mercy."</p>
+                <p class="verse-ref" style="margin-top:0.15cm;">— Surah Ar-Rum, 30:21</p>
+            </div>
+
+            <div class="section-card" style="padding: 0.5cm 1.5cm;">
+                <div class="detail-row">
+                    <span class="detail-icon">📅</span>
+                    <div class="detail-text">
+                        <div class="detail-label">Date</div>
+                        <div class="detail-value">Friday, July 31, 2026</div>
+                        <div class="detail-value-ar">الجمعة ٣١ يوليو ٢٠٢٦</div>
+                    </div>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-icon">🕖</span>
+                    <div class="detail-text">
+                        <div class="detail-label">Time</div>
+                        <div class="detail-value">7:00 PM onwards</div>
+                        <div class="detail-value-ar">من الساعة ٧:٠٠ مساءً</div>
+                    </div>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-icon">📍</span>
+                    <div class="detail-text">
+                        <div class="detail-label">Venue</div>
+                        <div class="detail-value"><em>Venue to be announced</em></div>
+                        <div class="detail-value-ar"><em>سيتم الإعلان عن المكان قريباً</em></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-card" style="padding: 0.4cm 1.5cm;">
+                <p class="closing-text">"We look forward to sharing this beautiful moment with you, surrounded by love, laughter, and the warmth of family and friends."</p>
+                <p class="closing-text-ar">نتطلع إلى مشاركتكم هذه اللحظة الجميلة، محاطين بالحب والفرح ودفء العائلة والأصدقاء.</p>
+                <div class="divider">💐</div>
+                <p class="signature">Ghazi &amp; Bayan</p>
+                <p class="signature-ar">غازي وبيان</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== PAGE 2: ROMANTIC PEACH ===== -->
+    <div class="page page-peach">
+        <span class="version-label">Version 2 — Romantic Peach</span>
+        <div class="page-content">
+            <div class="section-card">
+                <div class="ornament-top">🌸 &nbsp;✦&nbsp; 🌸</div>
+                <div class="bismillah">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</div>
+                <p class="label-en">You are invited to the Khutouba of</p>
+                <p class="label-ar">يسرنا دعوتكم لحضور خطوبة</p>
+                <div class="divider">✦</div>
+                <h1 class="names">Ghazi <span class="amp">&amp;</span> Bayan</h1>
+                <h2 class="names-ar">غازي وبيان</h2>
+                <div class="divider">✦</div>
+                <p class="subtitle">Together with their families</p>
+            </div>
+
+            <div class="section-card" style="padding: 0.6cm 1.5cm;">
+                <p class="verse-arabic">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَتَفَكَّرُونَ</p>
+                <div class="divider">🌸</div>
+                <p class="verse-translation">"And among His signs is that He created for you spouses from among yourselves, that you may find tranquility in them; and He placed between you affection and mercy."</p>
+                <p class="verse-ref" style="margin-top:0.15cm;">— Surah Ar-Rum, 30:21</p>
+            </div>
+
+            <div class="section-card" style="padding: 0.5cm 1.5cm;">
+                <div class="detail-row">
+                    <span class="detail-icon">📅</span>
+                    <div class="detail-text">
+                        <div class="detail-label">Date</div>
+                        <div class="detail-value">Friday, July 31, 2026</div>
+                        <div class="detail-value-ar">الجمعة ٣١ يوليو ٢٠٢٦</div>
+                    </div>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-icon">🕖</span>
+                    <div class="detail-text">
+                        <div class="detail-label">Time</div>
+                        <div class="detail-value">7:00 PM onwards</div>
+                        <div class="detail-value-ar">من الساعة ٧:٠٠ مساءً</div>
+                    </div>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-icon">📍</span>
+                    <div class="detail-text">
+                        <div class="detail-label">Venue</div>
+                        <div class="detail-value"><em>Venue to be announced</em></div>
+                        <div class="detail-value-ar"><em>سيتم الإعلان عن المكان قريباً</em></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-card" style="padding: 0.4cm 1.5cm;">
+                <p class="closing-text">"We look forward to sharing this beautiful moment with you, surrounded by love, laughter, and the warmth of family and friends."</p>
+                <p class="closing-text-ar">نتطلع إلى مشاركتكم هذه اللحظة الجميلة، محاطين بالحب والفرح ودفء العائلة والأصدقاء.</p>
+                <div class="divider">💐</div>
+                <p class="signature">Ghazi &amp; Bayan</p>
+                <p class="signature-ar">غازي وبيان</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== PAGE 3: ROMANTIC LAVENDER ===== -->
+    <div class="page page-lavender">
+        <span class="version-label">Version 3 — Romantic Lavender</span>
+        <div class="page-content">
+            <div class="section-card">
+                <div class="ornament-top">🪻 &nbsp;✦&nbsp; 🪻</div>
+                <div class="bismillah">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</div>
+                <p class="label-en">You are invited to the Khutouba of</p>
+                <p class="label-ar">يسرنا دعوتكم لحضور خطوبة</p>
+                <div class="divider">✦</div>
+                <h1 class="names">Ghazi <span class="amp">&amp;</span> Bayan</h1>
+                <h2 class="names-ar">غازي وبيان</h2>
+                <div class="divider">✦</div>
+                <p class="subtitle">Together with their families</p>
+            </div>
+
+            <div class="section-card" style="padding: 0.6cm 1.5cm;">
+                <p class="verse-arabic">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ۚ إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِّقَوْمٍ يَتَفَكَّرُونَ</p>
+                <div class="divider">🪻</div>
+                <p class="verse-translation">"And among His signs is that He created for you spouses from among yourselves, that you may find tranquility in them; and He placed between you affection and mercy."</p>
+                <p class="verse-ref" style="margin-top:0.15cm;">— Surah Ar-Rum, 30:21</p>
+            </div>
+
+            <div class="section-card" style="padding: 0.5cm 1.5cm;">
+                <div class="detail-row">
+                    <span class="detail-icon">📅</span>
+                    <div class="detail-text">
+                        <div class="detail-label">Date</div>
+                        <div class="detail-value">Friday, July 31, 2026</div>
+                        <div class="detail-value-ar">الجمعة ٣١ يوليو ٢٠٢٦</div>
+                    </div>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-icon">🕖</span>
+                    <div class="detail-text">
+                        <div class="detail-label">Time</div>
+                        <div class="detail-value">7:00 PM onwards</div>
+                        <div class="detail-value-ar">من الساعة ٧:٠٠ مساءً</div>
+                    </div>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-icon">📍</span>
+                    <div class="detail-text">
+                        <div class="detail-label">Venue</div>
+                        <div class="detail-value"><em>Venue to be announced</em></div>
+                        <div class="detail-value-ar"><em>سيتم الإعلان عن المكان قريباً</em></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-card" style="padding: 0.4cm 1.5cm;">
+                <p class="closing-text">"We look forward to sharing this beautiful moment with you, surrounded by love, laughter, and the warmth of family and friends."</p>
+                <p class="closing-text-ar">نتطلع إلى مشاركتكم هذه اللحظة الجميلة، محاطين بالحب والفرح ودفء العائلة والأصدقاء.</p>
+                <div class="divider">💐</div>
+                <p class="signature">Ghazi &amp; Bayan</p>
+                <p class="signature-ar">غازي وبيان</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
