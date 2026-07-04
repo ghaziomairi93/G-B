@@ -376,6 +376,14 @@
                 width: 210mm;
                 height: 297mm;
             }
+            /* Fallback: if gradient text fails, show solid color */
+            .names {
+                -webkit-text-fill-color: #3d2c2e;
+                background: none;
+            }
+            .names .amp {
+                -webkit-text-fill-color: #c4a35a;
+            }
         }
 
         @media screen {
